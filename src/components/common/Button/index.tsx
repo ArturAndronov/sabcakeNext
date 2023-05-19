@@ -1,4 +1,4 @@
-import { ButtonProps } from '@/interfaces/button';
+import { ButtonProps } from '@/components/common/Button/button';
 import { FC } from 'react';
 import { ButtonStyled } from './style';
 

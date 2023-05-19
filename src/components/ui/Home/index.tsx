@@ -4,12 +4,12 @@ import Layout from "@/components/common/Layout"
 
 import { Wrapper } from './style';
 import Header from '../Header';
-import Categories from '../Categories/Categories';
+import Categories from '../Categories/index';
 
 
 import images from '../../../assets/image'
 import Cake from '../Cake';
-import { CakeProps } from '@/interfaces/cake';
+import { CakeProps } from '@/components/ui/Cake/cake';
 
 let cakeList: CakeProps[] = [
   {

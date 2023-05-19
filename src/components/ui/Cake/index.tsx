@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { FC } from "react"
 
-import { CakeProps } from "@/interfaces/cake"
+import { CakeProps } from "@/components/ui/Cake/cake"
 import { CakeBlock } from "./style"
 import Button from "@/components/common/Button"
 

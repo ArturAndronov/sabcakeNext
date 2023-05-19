@@ -1,4 +1,4 @@
-import { CategoriesProps } from '@/interfaces/categories';
+import { CategoriesProps } from './categories';
 import React from 'react';
 import { FC } from 'react';
 import { CategoriesWrapper } from './style';

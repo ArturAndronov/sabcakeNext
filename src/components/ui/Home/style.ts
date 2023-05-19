@@ -1,7 +1,11 @@
 import styled from '@emotion/styled';
-import { WrapperProps } from '@/interfaces/styled';
 
-export const Wrapper = styled.div<WrapperProps>`
+interface Props {
+  bg: string
+}
+
+
+export const Wrapper = styled.div<Props>`
   background-color: ${({ bg }) => bg};
   border-radius: 20px;
   box-shadow: 0 15px 20px rgba(0,0,0,.03);

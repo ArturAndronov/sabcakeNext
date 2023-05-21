@@ -7,13 +7,15 @@ import images from '../../../assets/image'
 import Image from "next/image";
 
 const Header: FC = () => {
+    console.log('images.BG',images.BG)
     return (
         <>
             <Layout title="Header" description="A sweet bite">
                 <Box
                     style={{
-                        backgroundImage: `url(${images.BG})`,
+                        backgroundImage: `url(${images.BG.src})`,
                         backgroundSize: 'cover',
+                        padding: '300px 0',
                         backgroundPosition: 'center',
                     }}>
                     <Container fixed>

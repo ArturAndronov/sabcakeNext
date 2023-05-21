@@ -9,9 +9,9 @@ const HomePage: NextPage = () => {
 
     return (
         <>
-                <Nav />
-                <Header />
-                <Home/>
+            <Nav />
+            <Header />
+            <Home/>
         </>
     )
 }

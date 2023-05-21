@@ -5,7 +5,7 @@ const lightTheme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: blue[100],
+      main: "#000000",
     },
     secondary: {
       main: '#f50057',
@@ -17,7 +17,7 @@ const darkTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: red[100],
+      main: "#FFFFFF",
     },
     secondary: {
       main: '#f50057',

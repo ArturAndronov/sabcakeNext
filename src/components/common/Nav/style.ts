@@ -14,3 +14,19 @@ import {Badge, BadgeProps, Box} from "@mui/material";
 //   width: 100%;
 //
 // `;
+ export const LinkBox = styled(Box)`
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+
+   & > a {
+     margin-right: 65px;
+     text-decoration: none;
+     border-bottom: 2px solid transparent;
+     transition: border-bottom 0.3s ease;
+
+     &:hover {
+       border-bottom: 2px solid #000000;
+     }
+   }
+ `;

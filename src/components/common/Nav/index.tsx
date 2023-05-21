@@ -25,6 +25,10 @@ import Link from "@mui/material/Link";
 import {createTheme, ThemeProvider} from "@mui/material/styles";
 import {darkTheme, lightTheme} from "@/utils/theme";
 
+import images from '../../../assets/image'
+import Image from "next/image";
+import {LinkBox} from "@/components/common/Nav/style";
+
 
 const StyledBadge = styled(Badge)<BadgeProps>(({theme}) => ({
     '& .MuiBadge-badge': {
@@ -71,49 +75,57 @@ const Nav: FC = () => {
             <ThemeProvider theme={theme}>
                 <AppBar
                     position="fixed"
-                    sx={{ backgroundColor: 'transparent', boxShadow: 'none' }}
+                    sx={{backgroundColor: 'transparent', boxShadow: 'none'}}
                     style={{
                         backdropFilter: 'saturate(180%) blur(20px)',
                     }}
                 >
-                    <Container fixed>
-                        <Toolbar>
-
-                            <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
-                                News
+                    <Container maxWidth="lg">
+                        <Toolbar sx={{display: 'flex', justifyContent: 'space-between'}}>
+                            <Typography variant="h6" component="div">
+                                <Link href="/">
+                                    <Image src={images.cake} alt="Logo" style={{marginRight: '10px'}} width={75}
+                                           height={75}/>
+                                </Link>
                             </Typography>
-                            <IconButton aria-label="cart">
-                                <StyledBadge badgeContent={2} color="secondary">
-                                    <ShoppingCartIcon/>
-                                </StyledBadge>
-                            </IconButton>
-                            <Stack spacing={2} direction="row" alignItems="center">
-                                <Switch checked={isDarkTheme} onChange={handleThemeChange}/>
-                            </Stack>
-                            <IconButton
-                                size="large"
-                                edge="start"
-                                color="inherit"
-                                aria-label="menu"
-                                sx={{mr: 2}}
-                            >
-                                <MenuIcon onClick={handleClickMenu}/>
-                                <Menu
-                                    id="basic-menu"
-                                    anchorEl={anchorEl}
-                                    open={openMenu}
-                                    onClose={handleCloseMenu}
-                                    MenuListProps={{
-                                        'aria-labelledby': 'basic-button',
-                                    }}
+                            <Box sx={{display: 'flex'}}>
+                                <LinkBox >
+                                    <Link href="/">Home</Link>
+                                    <Link href="/gallery">Gallery</Link>
+                                    <Link href="/shop">Shop</Link>
+                                    <Link href="http://localhost:3000/#portfolio">Portfolio</Link>
+                                </LinkBox>
+                                <IconButton aria-label="cart">
+                                    <StyledBadge badgeContent={2} color="secondary">
+                                        <ShoppingCartIcon/>
+                                    </StyledBadge>
+                                </IconButton>
+                                <Stack spacing={2} direction="row" alignItems="center">
+                                    <Switch checked={isDarkTheme} onChange={handleThemeChange}/>
+                                </Stack>
+                                <IconButton
+                                    size="large"
+                                    edge="start"
+                                    color="default"
+                                    aria-label="menu"
                                 >
-                                    <MenuItem onClick={handleCloseMenu}><Link href="#">Home</Link></MenuItem>
-                                    <MenuItem onClick={handleCloseMenu}><Link href="#">Characters</Link></MenuItem>
-                                    <MenuItem onClick={handleCloseMenu}><Link href="#">Logout</Link></MenuItem>
-                                </Menu>
+                                    <MenuIcon onClick={handleClickMenu}/>
+                                    <Menu
+                                        id="basic-menu"
+                                        anchorEl={anchorEl}
+                                        open={openMenu}
+                                        onClose={handleCloseMenu}
+                                        MenuListProps={{
+                                            'aria-labelledby': 'basic-button',
+                                        }}
+                                    >
+                                        <MenuItem onClick={handleCloseMenu}><Link href="#">Home</Link></MenuItem>
+                                        <MenuItem onClick={handleCloseMenu}><Link href="#">Characters</Link></MenuItem>
+                                        <MenuItem onClick={handleCloseMenu}><Link href="#">Logout</Link></MenuItem>
+                                    </Menu>
+                                </IconButton>
                                 <TextField
                                     select
-
                                     value={selectedLanguage}
                                     onChange={handleLanguageChange}
                                 >
@@ -123,7 +135,7 @@ const Nav: FC = () => {
                                         </MenuItem>
                                     ))}
                                 </TextField>
-                            </IconButton>
+                            </Box>
                         </Toolbar>
                     </Container>
                 </AppBar>

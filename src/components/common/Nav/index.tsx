@@ -39,6 +39,10 @@ const StyledBadge = styled(Badge)<BadgeProps>(({theme}) => ({
     },
 }));
 
+const styles = {
+    toolbar: {display: 'flex', justifyContent: 'space-between'}
+}
+
 const theme = createTheme();
 const Nav: FC = () => {
 
@@ -80,8 +84,7 @@ const Nav: FC = () => {
                         backdropFilter: 'saturate(180%) blur(20px)',
                     }}
                 >
-                    <Container maxWidth="lg">
-                        <Toolbar sx={{display: 'flex', justifyContent: 'space-between'}}>
+                        <Toolbar sx={styles.toolbar}>
                             <Typography variant="h6" component="div">
                                 <Link href="/">
                                     <Image src={images.cake} alt="Logo" style={{marginRight: '10px'}} width={75}
@@ -137,7 +140,6 @@ const Nav: FC = () => {
                                 </TextField>
                             </Box>
                         </Toolbar>
-                    </Container>
                 </AppBar>
             </ThemeProvider>
         </>

@@ -1,6 +1,5 @@
 import React, {FC, useState} from 'react';
 
-
 import {
     AppBar,
     Badge,
@@ -27,21 +26,11 @@ import {darkTheme, lightTheme} from "@/utils/theme";
 
 import images from '../../../assets/image'
 import Image from "next/image";
-import {LinkBox} from "@/components/common/Nav/style";
+
+import {StyledBadge, LinkBox} from './style'
 
 
-const StyledBadge = styled(Badge)<BadgeProps>(({theme}) => ({
-    '& .MuiBadge-badge': {
-        right: -3,
-        top: 13,
-        border: `2px solid ${theme.palette.background.paper}`,
-        padding: '0 4px',
-    },
-}));
 
-const styles = {
-    toolbar: {display: 'flex', justifyContent: 'space-between'}
-}
 
 const theme = createTheme();
 const Nav: FC = () => {
@@ -79,24 +68,31 @@ const Nav: FC = () => {
             <ThemeProvider theme={theme}>
                 <AppBar
                     position="fixed"
-                    sx={{backgroundColor: 'transparent', boxShadow: 'none'}}
                     style={{
+                        backgroundColor: 'transparent',
+                        boxShadow: 'none',
+                        padding: "10px",
                         backdropFilter: 'saturate(180%) blur(20px)',
                     }}
                 >
-                        <Toolbar sx={styles.toolbar}>
-                            <Typography variant="h6" component="div">
+                        <Toolbar
+                            style={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            padding: "0px 215px"
+                        }}>
+                            <Box>
                                 <Link href="/">
-                                    <Image src={images.cake} alt="Logo" style={{marginRight: '10px'}} width={75}
-                                           height={75}/>
+                                    <Image src={images.logo} alt="Logo" style={{marginRight: '10px'}}
+                                           />
                                 </Link>
-                            </Typography>
+                            </Box>
                             <Box sx={{display: 'flex'}}>
                                 <LinkBox >
                                     <Link href="/">Home</Link>
                                     <Link href="/gallery">Gallery</Link>
                                     <Link href="/shop">Shop</Link>
-                                    <Link href="http://localhost:3000/#portfolio">Portfolio</Link>
+                                    <Link href="#portfolio">Portfolio</Link>
                                 </LinkBox>
                                 <IconButton aria-label="cart">
                                     <StyledBadge badgeContent={2} color="secondary">

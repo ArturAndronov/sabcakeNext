@@ -9,13 +9,7 @@ export const StyledBadge = styled(Badge)<BadgeProps>(({theme}:any) => ({
     },
 }));
 
-// export const NavBox = styled(Box)`
-//   backdrop-filter: saturate(180%) blur(20px);
-//   position: fixed;
-//   width: 100%;
-//
-// `;
- export const LinkBox = styled(Box)`
+export const LinkBox = styled(Box)`
    display: flex;
    align-items: center;
    justify-content: space-between;

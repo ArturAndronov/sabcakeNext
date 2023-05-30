@@ -11,10 +11,10 @@ import SliderComponent from "@/components/ui/SliderComponent";
 
 
 const theme = createTheme();
-const Home: FC = () => {
+const AboutMe: FC = () => {
     return (
         <ThemeProvider theme={theme}>
-            <Layout title='Home'
+            <Layout title='About me'
                     description="best cake in Israel"
             >
                 <Box style={{
@@ -101,4 +101,4 @@ const Home: FC = () => {
     )
 }
 
-export default Home;
+export default AboutMe;

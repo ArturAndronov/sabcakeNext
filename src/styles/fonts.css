@@ -15,3 +15,13 @@
   font-weight: 400;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Poppins';
+  src: local('Poppins Regular'), local('Poppins-Regular'),
+  url('./fonts/Poppins/Poppinsregular.woff2') format('woff2'),
+  url('./fonts/Poppins/Poppinsregular.woff') format('woff'),
+  url('./fonts/Poppins/Poppinsregular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}

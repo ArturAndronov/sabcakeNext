@@ -15,6 +15,18 @@ export const SliderBox = styled(Box)`
   .slick-list {
     margin: 0 -10px;
   }
+  .slick-prev:before, .slick-next:before {
+    font-size: 30px;
+  }
+
+  /* Изменение расстояния между кнопками */
+  .slick-prev {
+    left: -50px;
+  }
+
+  .slick-next {
+    right: -40px;
+  }
 
   
 `

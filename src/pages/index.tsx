@@ -1,9 +1,11 @@
 import {NextPage} from "next";
 
-import Home from "@/components/ui/Home";
+import AboutMe from "../components/ui/AboutMe";
 
 import Nav from "@/components/common/Nav";
 import Header from "@/components/ui/Header";
+import Footer from "@/components/common/Footer";
+import BestProduct from "@/components/ui/BestProduct";
 
 const HomePage: NextPage = () => {
 
@@ -11,7 +13,9 @@ const HomePage: NextPage = () => {
         <>
             <Nav />
             <Header />
-            <Home/>
+            <AboutMe/>
+            <BestProduct/>
+            <Footer/>
         </>
     )
 }

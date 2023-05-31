@@ -17,6 +17,7 @@ import facebook from './img/brandico_facebook-rect.png'
 import instagram from './img/teenyicons_instagram-solid.png'
 import whatsapp from './img/whatsapp.png'
 import icesplash from './img/icesplash.png'
+import icesplashitem5 from './img/icesplashitem5.png'
 
 const images = {
     cakeItem2: cakeItem2,
@@ -37,7 +38,8 @@ const images = {
     facebook: facebook,
     instagram: instagram,
     whatsapp: whatsapp,
-    icesplash: icesplash
+    icesplash: icesplash,
+    icesplashitem5: icesplashitem5
     }
 
 export default images

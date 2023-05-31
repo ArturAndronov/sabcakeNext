@@ -27,6 +27,16 @@ export const SliderBox = styled(Box)`
   .slick-next {
     right: -40px;
   }
+  
+  /* Стили для активного кружка */
+  .slick-dots li.slick-active button:before {
+    color: #fff /* Здесь можно указать желаемый цвет */
+  }
+
+  /* Стили для неактивных кружков */
+  .slick-dots li button:before {
+    color: #fff; /* Здесь можно указать желаемый цвет */
+  }
 
   
 `

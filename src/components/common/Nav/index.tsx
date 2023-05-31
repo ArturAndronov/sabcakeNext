@@ -35,6 +35,7 @@ import {StyledBadge, LinkBox} from './style'
 const theme = createTheme();
 const Nav: FC = () => {
 
+
     const [isDarkTheme, setIsDarkTheme] = useState(false);
 
     const theme = isDarkTheme ? darkTheme : lightTheme;
@@ -82,7 +83,7 @@ const Nav: FC = () => {
                             padding: "0px 215px"
                         }}>
                             <Box>
-                                <Link href="/">
+                                <Link href="/" >
                                     <Image src={images.logo} alt="Logo" style={{marginRight: '10px'}}
                                            />
                                 </Link>

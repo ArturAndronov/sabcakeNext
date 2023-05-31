@@ -48,7 +48,7 @@ const Header: FC = () => {
                         <Typography
                             style={{
                                 padding: "25px 0px",
-                                width: "650px",
+                                maxWidth: "650px",
                                 fontWeight: "400",
                                 fontSize: "24px"
                             }}>

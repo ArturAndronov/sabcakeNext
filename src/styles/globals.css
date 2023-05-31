@@ -15,6 +15,9 @@
 a {
   text-decoration: none;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 /* body {
   background-color: #ec9eb5;

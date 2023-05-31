@@ -17,7 +17,7 @@ const AboutMe: FC = () => {
             <Layout title='About me'
                     description="best cake in Israel"
             >
-                <Box style={{
+                <Box id="portfolio" style={{
                     backgroundImage: `url(${images.aboutme.src})`,
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
@@ -60,7 +60,7 @@ const AboutMe: FC = () => {
                             <Typography
                                 style={{
                                     padding: "25px 0px",
-                                    width: "600px",
+                                    maxWidth: "600px",
                                     color: "#fff",
                                     fontFamily: 'Quicksand',
                                     fontWeight: "500",

@@ -18,6 +18,7 @@ import instagram from './img/teenyicons_instagram-solid.png'
 import whatsapp from './img/whatsapp.png'
 import icesplash from './img/icesplash.png'
 import icesplashitem5 from './img/icesplashitem5.png'
+import review from './img/review.png'
 
 const images = {
     cakeItem2: cakeItem2,
@@ -39,7 +40,8 @@ const images = {
     instagram: instagram,
     whatsapp: whatsapp,
     icesplash: icesplash,
-    icesplashitem5: icesplashitem5
+    icesplashitem5: icesplashitem5,
+    review: review
     }
 
 export default images

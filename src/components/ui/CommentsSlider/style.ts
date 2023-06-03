@@ -21,5 +21,7 @@ export const CommentsSliderContainer = styled(Box)`
   .slick-next {
     right: -50px;
   }
-
+  .slick-dots li button:before {
+    font-size: 16px; /* Измените размер на нужный вам */
+  }
 `;

@@ -19,6 +19,8 @@ import whatsapp from './img/whatsapp.png'
 import icesplash from './img/icesplash.png'
 import icesplashitem5 from './img/icesplashitem5.png'
 import review from './img/review.png'
+import yourflavor from './img/yourflavor.png'
+import cakepops from "./img/cakepops.png";
 
 const images = {
     cakeItem2: cakeItem2,
@@ -41,7 +43,9 @@ const images = {
     whatsapp: whatsapp,
     icesplash: icesplash,
     icesplashitem5: icesplashitem5,
-    review: review
+    review: review,
+    yourflavor: yourflavor,
+    cakepops: cakepops
     }
 
 export default images

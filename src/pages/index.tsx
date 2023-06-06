@@ -7,6 +7,8 @@ import Header from "@/components/ui/Header";
 import Footer from "@/components/common/Footer";
 import BestProduct from "@/components/ui/BestProduct";
 import Review from "@/components/ui/Review";
+import ChooseFlavor from "@/components/ui/ChooseFlavor";
+import CakePops from "@/components/ui/CakePops";
 
 const HomePage: NextPage = () => {
 
@@ -17,6 +19,8 @@ const HomePage: NextPage = () => {
             <AboutMe/>
             <BestProduct/>
             <Review />
+            <ChooseFlavor />
+            <CakePops />
             <Footer/>
         </>
     )

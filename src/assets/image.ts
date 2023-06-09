@@ -21,6 +21,7 @@ import icesplashitem5 from './img/icesplashitem5.png'
 import review from './img/review.png'
 import yourflavor from './img/yourflavor.png'
 import cakepops from "./img/cakepops.png";
+import ourmenu from './img/ourmenu.png'
 
 const images = {
     cakeItem2: cakeItem2,
@@ -45,7 +46,8 @@ const images = {
     icesplashitem5: icesplashitem5,
     review: review,
     yourflavor: yourflavor,
-    cakepops: cakepops
+    cakepops: cakepops,
+    ourmenu: ourmenu
     }
 
 export default images

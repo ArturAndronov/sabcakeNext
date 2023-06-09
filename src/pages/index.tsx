@@ -9,6 +9,7 @@ import BestProduct from "@/components/ui/BestProduct";
 import Review from "@/components/ui/Review";
 import ChooseFlavor from "@/components/ui/ChooseFlavor";
 import CakePops from "@/components/ui/CakePops";
+import OurMenu from "@/components/ui/OurMenu";
 
 const HomePage: NextPage = () => {
 
@@ -21,6 +22,7 @@ const HomePage: NextPage = () => {
             <Review />
             <ChooseFlavor />
             <CakePops />
+            <OurMenu />
             <Footer/>
         </>
     )

@@ -46,12 +46,8 @@ const ChooseFlavor: FC = () => {
                             fontWeight: "400",
                             fontSize: "18px"
                         }}>
-                        Lorem ipsum dolor sit amet consectetur adipiscing elit ante imperdiet leo fames quisque
-                        convallis habitasse, morbi mi euismod hac conubia cursus rutrum felis et aptent inceptos gravida
-                        tempor. Aptent netus cras eget torquent auctor rutrum fringilla varius dictumst, odio
-                        scelerisque leo placerat metus lobortis congue arcu
-                        quisque convallis habitasse, morbi mi euismod hac conubia cursus rutrum felis et sodales porta,
-                        ornare facilis quis sociosqu.
+                        Here you can independently assemble your ideal dessert that fully meets your preferences and
+                        desires.
                     </Typography>
                     <CustomButton>
                         <Link href="/">

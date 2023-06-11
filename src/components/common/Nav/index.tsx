@@ -91,7 +91,7 @@ const Nav: FC = () => {
                             <Box sx={{display: 'flex'}}>
                                 <LinkBox >
                                     <Link href="/">Home</Link>
-                                    <Link href="/gallery">Gallery</Link>
+                                    <Link href="#gallerycarousel">Gallery</Link>
                                     <Link href="/shop">Shop</Link>
                                     <Link href="#portfolio">Portfolio</Link>
                                 </LinkBox>

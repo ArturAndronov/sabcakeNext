@@ -22,6 +22,15 @@ import review from './img/review.png'
 import yourflavor from './img/yourflavor.png'
 import cakepops from "./img/cakepops.png";
 import ourmenu from './img/ourmenu.png'
+import gallery1 from './img/gallery/1.png'
+import gallery2 from './img/gallery/2.png'
+import gallery3 from './img/gallery/3.png'
+import gallery4 from './img/gallery/4.png'
+import gallery5 from './img/gallery/5.png'
+import gallery6 from './img/gallery/6.png'
+import gallery7 from './img/gallery/7.png'
+import gallery8 from './img/gallery/8.png'
+
 
 const images = {
     cakeItem2: cakeItem2,
@@ -47,7 +56,15 @@ const images = {
     review: review,
     yourflavor: yourflavor,
     cakepops: cakepops,
-    ourmenu: ourmenu
+    ourmenu: ourmenu,
+    gallery1: gallery1,
+    gallery2: gallery2,
+    gallery3: gallery3,
+    gallery4: gallery4,
+    gallery5: gallery5,
+    gallery6: gallery6,
+    gallery7: gallery7,
+    gallery8: gallery8
     }
 
 export default images

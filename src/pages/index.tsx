@@ -10,6 +10,7 @@ import Review from "@/components/ui/Review";
 import ChooseFlavor from "@/components/ui/ChooseFlavor";
 import CakePops from "@/components/ui/CakePops";
 import OurMenu from "@/components/ui/OurMenu";
+import GalleryCarousel from "@/components/ui/GalleryCarousel/GalleryCarousel";
 
 const HomePage: NextPage = () => {
 
@@ -23,6 +24,7 @@ const HomePage: NextPage = () => {
             <ChooseFlavor />
             <CakePops />
             <OurMenu />
+            <GalleryCarousel/>
             <Footer/>
         </>
     )

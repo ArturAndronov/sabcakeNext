@@ -4,8 +4,14 @@ import Image from "next/image";
 import images from "@/assets/image";
 import {CustomButton} from "@/components/ui/Header/style";
 import Link from "@mui/material/Link";
-
-const ChooseFlavor: FC = () => {
+import {Translations} from "@/pages";
+import {ImageContainer} from "@/components/ui/AboutMe/style";
+interface ChooseFlavorProps {
+    selectedLanguage: string;
+    translations: Translations;
+}
+const ChooseFlavor: FC<ChooseFlavorProps> = ({selectedLanguage, translations }) => {
+    const currentTranslations = translations[selectedLanguage];
     return (
         <>
             <Box
@@ -16,9 +22,9 @@ const ChooseFlavor: FC = () => {
                     backgroundColor: '#FDFAF4',
                     height: '750px',
                 }}>
-                <Box style={{}}>
+                <ImageContainer>
                     <Image src={images.yourflavor} alt='yourflavor'/>
-                </Box>
+                </ImageContainer>
                 <Box
                     style={{
                         display: "flex",
@@ -36,7 +42,7 @@ const ChooseFlavor: FC = () => {
                             paddingBottom: "25px"
                         }}
                     >
-                        Choose Your Flavor
+                        {currentTranslations.titleChooseFlavor}
                     </Typography>
 
                     <Typography
@@ -46,12 +52,11 @@ const ChooseFlavor: FC = () => {
                             fontWeight: "400",
                             fontSize: "18px"
                         }}>
-                        Here you can independently assemble your ideal dessert that fully meets your preferences and
-                        desires.
+                        {currentTranslations.descriptionChooseFlavor}
                     </Typography>
                     <CustomButton>
                         <Link href="/">
-                            Order now
+                            {currentTranslations.button}
                         </Link>
                     </CustomButton>
                 </Box>

@@ -7,6 +7,7 @@ import {GalleryBox,Overlay, GalleryContainer} from "@/components/ui/GalleryCarou
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import {ImageContainer} from "@/components/ui/AboutMe/style";
 
 const GalleryCarousel: FC = () => {
     const [activeSlide, setActiveSlide] = useState(null);
@@ -50,12 +51,12 @@ const GalleryCarousel: FC = () => {
                 key={index}
                 className={`cake-item`}
             >
+                <ImageContainer>
                 <Image
                     src={cake.image}
                     alt={cake.name}
-                    width={480}
-                    height={480}
                 />
+                </ImageContainer>
                 <Overlay>
                     <p>{cake.name}</p>
                 </Overlay>

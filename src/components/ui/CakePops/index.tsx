@@ -4,8 +4,16 @@ import Image from "next/image";
 import images from "@/assets/image";
 import {CustomButton} from "@/components/ui/Header/style";
 import Link from "@mui/material/Link";
+import {Translations} from "@/pages";
+import {ImageContainer} from "@/components/ui/AboutMe/style";
 
-const CakePops: FC = () => {
+interface CakePopsProps {
+    selectedLanguage: string;
+    translations: Translations;
+}
+
+const CakePops: FC<CakePopsProps> = ({selectedLanguage, translations}) => {
+    const currentTranslations = translations[selectedLanguage];
     return (
         <>
             <Box
@@ -33,7 +41,7 @@ const CakePops: FC = () => {
                             paddingBottom: "25px"
                         }}
                     >
-                        Cake Pops
+                        {currentTranslations.titleCakePops}
                     </Typography>
 
                     <Typography
@@ -43,18 +51,17 @@ const CakePops: FC = () => {
                             fontWeight: "400",
                             fontSize: "18px"
                         }}>
-                        Delicate biscuit with juicy filling, covered with Belgian chocolate with any decor of your
-                        choice.
+                        {currentTranslations.descriptionCakePops}
                     </Typography>
                     <CustomButton>
                         <Link href="/">
-                            Order now
+                            {currentTranslations.button}
                         </Link>
                     </CustomButton>
                 </Box>
-                <Box>
+                <ImageContainer>
                     <Image src={images.cakepops} alt='cakepops'/>
-                </Box>
+                </ImageContainer>
             </Box>
         </>
     )

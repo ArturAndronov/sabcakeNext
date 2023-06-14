@@ -2,6 +2,7 @@ import React, {FC} from 'react'
 import {Box, Typography} from "@mui/material";
 import images from "@/assets/image";
 import Image from "next/image";
+import {ImageContainer} from "@/components/ui/AboutMe/style";
 
 const BestProduct: FC = () => {
     return (
@@ -222,12 +223,9 @@ const BestProduct: FC = () => {
                             </Box>
                         </Box>
 
-                        <Box style={{
-                            display: 'flex',
-                            justifyContent: 'center'
-                        }}>
+                        <ImageContainer>
                             <Image src={images.icesplashitem5} alt="icesplashitem"/>
-                        </Box>
+                        </ImageContainer>
 
                         <Box style={{
                             display: 'flex',

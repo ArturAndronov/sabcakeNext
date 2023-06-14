@@ -11,7 +11,6 @@ import BG from './img/BG.png'
 import cake from './img/cake.png'
 import logo from './img/logo.png'
 import aboutme from './img/aboutme.png'
-import sabPhoto from './img/sabPhoto.png'
 import logowhite from './img/logowhite.png'
 import facebook from './img/brandico_facebook-rect.png'
 import instagram from './img/teenyicons_instagram-solid.png'
@@ -30,6 +29,7 @@ import gallery5 from './img/gallery/5.png'
 import gallery6 from './img/gallery/6.png'
 import gallery7 from './img/gallery/7.png'
 import gallery8 from './img/gallery/8.png'
+import sab from './img/sab.png'
 
 
 const images = {
@@ -47,7 +47,6 @@ const images = {
     cake: cake,
     logo: logo,
     logowhite: logowhite,
-    sabPhoto: sabPhoto,
     facebook: facebook,
     instagram: instagram,
     whatsapp: whatsapp,
@@ -64,7 +63,8 @@ const images = {
     gallery5: gallery5,
     gallery6: gallery6,
     gallery7: gallery7,
-    gallery8: gallery8
+    gallery8: gallery8,
+    sab: sab
     }
 
 export default images

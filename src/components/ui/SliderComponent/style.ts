@@ -5,8 +5,9 @@ export const SliderContainer = styled(Box)`
  width: 100%;
  max-width: 1200px;
  margin: 0 auto;
+  padding-top: 55px;
+  
 `;
-
 export const SliderBox = styled(Box)`
   width: 100%;
   margin-top: 50px;
@@ -37,6 +38,5 @@ export const SliderBox = styled(Box)`
   .slick-dots li button:before {
     color: #fff; /* Здесь можно указать желаемый цвет */
   }
-
   
 `

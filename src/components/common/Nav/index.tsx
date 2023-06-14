@@ -29,11 +29,16 @@ import Image from "next/image";
 
 import {StyledBadge, LinkBox} from './style'
 
+import { Translations } from './../../../pages/index';
 
-
+interface NavProps {
+    selectedLanguage: string;
+    handleLanguageChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    translations: Translations;
+}
 
 const theme = createTheme();
-const Nav: FC = () => {
+const Nav: FC<NavProps> = ({selectedLanguage, translations, handleLanguageChange }) => {
 
 
     const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -49,10 +54,10 @@ const Nav: FC = () => {
         {value: 'ru', label: 'Russian'},
         // Добавьте другие языки по желанию
     ];
-    const [selectedLanguage, setSelectedLanguage] = useState('en');
-    const handleLanguageChange = (event: any) => {
-        setSelectedLanguage(event.target.value);
-    };
+
+// Получите текущий текст на основе выбранного языка
+    const currentTranslations = translations[selectedLanguage];
+
 
 
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -89,11 +94,11 @@ const Nav: FC = () => {
                                 </Link>
                             </Box>
                             <Box sx={{display: 'flex'}}>
-                                <LinkBox >
-                                    <Link href="/">Home</Link>
-                                    <Link href="#gallerycarousel">Gallery</Link>
-                                    <Link href="/shop">Shop</Link>
-                                    <Link href="#portfolio">Portfolio</Link>
+                                <LinkBox>
+                                    <Link href="/">{currentTranslations.home}</Link>
+                                    <Link href="#gallerycarousel">{currentTranslations.gallery}</Link>
+                                    <Link href="/shop">{currentTranslations.shop}</Link>
+                                    <Link href="#portfolio">{currentTranslations.portfolio}</Link>
                                 </LinkBox>
                                 <IconButton aria-label="cart">
                                     <StyledBadge badgeContent={2} color="secondary">

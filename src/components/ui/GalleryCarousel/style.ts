@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import {Box} from "@mui/material";
 export const GalleryContainer = styled(Box)`
   width: 100%;
-  height: 480px;
   margin: 0 auto;
+  background-color: #000;
 
   .slick-slider {
     display: flex;
@@ -11,11 +11,7 @@ export const GalleryContainer = styled(Box)`
   }
 
   .slick-slide > div {
-    width: 100%;
-  }
-
-  @media (max-width: 768px) {
-    height: 480px;
+    width: 100%;~
   }
 `;
 export const GalleryBox = styled.div`

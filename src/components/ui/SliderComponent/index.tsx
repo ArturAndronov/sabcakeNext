@@ -6,6 +6,7 @@ import Image from 'next/image';
 import images from "@/assets/image";
 
 import {SliderBox, SliderContainer} from '@/components/ui/SliderComponent/style';
+import {ImageContainer} from "@/components/ui/AboutMe/style";
 
 const SliderComponent: FC = () => {
     const settings = {
@@ -21,38 +22,30 @@ const SliderComponent: FC = () => {
         <SliderContainer>
             <SliderBox>
                 <Slider {...settings}>
-                    <div>
+                    <ImageContainer>
                         <Image
                             src={images.certificate1}
                             alt="1"
-                            width={550}
-                            height={350}
                         />
-                    </div>
-                    <div>
+                    </ImageContainer>
+                    <ImageContainer>
                         <Image
                             src={images.certificate2}
                             alt="2"
-                            width={550}
-                            height={350}
                         />
-                    </div>
-                    <div>
+                    </ImageContainer>
+                    <ImageContainer>
                         <Image
                             src={images.certificate3}
                             alt="3"
-                            width={550}
-                            height={350}
                         />
-                    </div>
-                    <div>
+                    </ImageContainer>
+                    <ImageContainer>
                         <Image
                             src={images.certificate4}
                             alt="4"
-                            width={550}
-                            height={350}
                         />
-                    </div>
+                    </ImageContainer>
                 </Slider>
             </SliderBox>
         </SliderContainer>

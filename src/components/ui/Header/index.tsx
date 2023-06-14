@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 
 import Layout from "@/components/common/Layout"
 import {CustomButton} from "@/components/ui/Header/style";
@@ -8,10 +8,16 @@ import Link from "@mui/material/Link";
 
 import images from '../../../assets/image'
 
+import { Translations } from './../../../pages/index';
 
+interface HeaderProps {
+    selectedLanguage: string;
+    translations: Translations;
+}
 
-const Header: FC = () => {
-    console.log('images.BG', images.BG)
+const Header: FC<HeaderProps> = ({selectedLanguage, translations }) => {
+    const currentTranslations = translations[selectedLanguage];
+
     return (
         <>
             <Layout title="Header" description="A sweet bite">
@@ -42,7 +48,7 @@ const Header: FC = () => {
                                 paddingBottom: "25px"
                             }}
                         >
-                            A Sweet Bite
+                            {currentTranslations.titleHeader}
                         </Typography>
 
                         <Typography
@@ -52,12 +58,11 @@ const Header: FC = () => {
                                 fontWeight: "400",
                                 fontSize: "24px"
                             }}>
-                            Take it all in a single bite. Import the full demo content with a
-                            single mouse click using the one-click import feature.
+                            {currentTranslations.descriptionHeader}
                         </Typography>
                         <CustomButton>
                             <Link href="/">
-                                Take a bite
+                                {currentTranslations.buttonHeader}
                             </Link>
                         </CustomButton>
                     </Box>

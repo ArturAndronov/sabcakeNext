@@ -23,6 +23,9 @@ const Header: FC<HeaderProps> = ({selectedLanguage, translations }) => {
             <Layout title="Header" description="A sweet bite">
                 <Box
                     style={{
+                        display: 'flex',
+                        justifyContent: 'flex-end',
+                        alignItems: 'center',
                         backgroundImage: `url(${images.BG.src})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
@@ -34,7 +37,7 @@ const Header: FC<HeaderProps> = ({selectedLanguage, translations }) => {
                             display: "flex",
                             flexDirection: 'column',
                             alignItems: "center",
-                            padding: "430px 0px 0px 750px",
+                            padding: '258px'
 
                         }}>
                         <Typography

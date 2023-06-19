@@ -29,7 +29,7 @@ import Image from "next/image";
 
 import {StyledBadge, LinkBox} from './style'
 
-import { Translations } from './../../../pages/index';
+import {Translations} from './../../../pages/index';
 
 interface NavProps {
     selectedLanguage: string;
@@ -38,16 +38,8 @@ interface NavProps {
 }
 
 const theme = createTheme();
-const Nav: FC<NavProps> = ({selectedLanguage, translations, handleLanguageChange }) => {
+const Nav: FC<NavProps> = ({selectedLanguage, translations, handleLanguageChange}) => {
 
-
-    const [isDarkTheme, setIsDarkTheme] = useState(false);
-
-    const theme = isDarkTheme ? darkTheme : lightTheme;
-
-    const handleThemeChange = () => {
-        setIsDarkTheme(!isDarkTheme);
-    };
 
     const languages = [
         {value: 'en', label: 'English'},
@@ -57,7 +49,6 @@ const Nav: FC<NavProps> = ({selectedLanguage, translations, handleLanguageChange
 
 // Получите текущий текст на основе выбранного языка
     const currentTranslations = translations[selectedLanguage];
-
 
 
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -71,43 +62,48 @@ const Nav: FC<NavProps> = ({selectedLanguage, translations, handleLanguageChange
 
     return (
         <>
-            <ThemeProvider theme={theme}>
-                <AppBar
-                    position="fixed"
+            <AppBar
+                position="fixed"
+                style={{
+                    backgroundColor: 'transparent',
+                    boxShadow: 'none',
+                    padding: "10px",
+                    backdropFilter: 'saturate(180%) blur(20px)',
+                }}
+            >
+                <Toolbar
                     style={{
-                        backgroundColor: 'transparent',
-                        boxShadow: 'none',
-                        padding: "10px",
-                        backdropFilter: 'saturate(180%) blur(20px)',
-                    }}
-                >
-                        <Toolbar
-                            style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        padding: "0px 215px"
+                    }}>
+                    <Box>
+                        <Link href="/">
+                            <Image src={images.logo} alt="Logo"
+                            />
+                        </Link>
+                    </Box>
+                    <Box sx={{display: 'flex'}}>
+                        <LinkBox>
+                            <Link href="/">{currentTranslations.home}</Link>
+                            <Link href="#gallerycarousel">{currentTranslations.gallery}</Link>
+                            <Link href="/shop">{currentTranslations.shop}</Link>
+                            <Link href="#portfolio">{currentTranslations.portfolio}</Link>
+                        </LinkBox>
+                        <Box style={{
                             display: 'flex',
-                            justifyContent: 'space-between',
-                            padding: "0px 215px"
+                            alignItems: 'center'
                         }}>
-                            <Box>
-                                <Link href="/" >
-                                    <Image src={images.logo} alt="Logo" style={{marginRight: '10px'}}
-                                           />
-                                </Link>
-                            </Box>
-                            <Box sx={{display: 'flex'}}>
-                                <LinkBox>
-                                    <Link href="/">{currentTranslations.home}</Link>
-                                    <Link href="#gallerycarousel">{currentTranslations.gallery}</Link>
-                                    <Link href="/shop">{currentTranslations.shop}</Link>
-                                    <Link href="#portfolio">{currentTranslations.portfolio}</Link>
-                                </LinkBox>
+                            <Box style={{
+                                paddingRight: '15px'
+                            }}>
                                 <IconButton aria-label="cart">
-                                    <StyledBadge badgeContent={2} color="secondary">
+                                    <StyledBadge badgeContent={2} color="error">
                                         <ShoppingCartIcon/>
                                     </StyledBadge>
                                 </IconButton>
-                                <Stack spacing={2} direction="row" alignItems="center">
-                                    <Switch checked={isDarkTheme} onChange={handleThemeChange}/>
-                                </Stack>
+                            </Box>
+                            <Box>
                                 <IconButton
                                     size="large"
                                     edge="start"
@@ -129,6 +125,8 @@ const Nav: FC<NavProps> = ({selectedLanguage, translations, handleLanguageChange
                                         <MenuItem onClick={handleCloseMenu}><Link href="#">Logout</Link></MenuItem>
                                     </Menu>
                                 </IconButton>
+                            </Box>
+                            <Box>
                                 <TextField
                                     select
                                     value={selectedLanguage}
@@ -141,9 +139,10 @@ const Nav: FC<NavProps> = ({selectedLanguage, translations, handleLanguageChange
                                     ))}
                                 </TextField>
                             </Box>
-                        </Toolbar>
-                </AppBar>
-            </ThemeProvider>
+                        </Box>
+                    </Box>
+                </Toolbar>
+            </AppBar>
         </>
     )
 }

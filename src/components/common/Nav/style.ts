@@ -15,6 +15,7 @@ export const LinkBox = styled(Box)`
    justify-content: space-between;
 
    & > a {
+     color: #000;
      margin-right: 65px;
      text-decoration: none;
      border-bottom: 2px solid transparent;

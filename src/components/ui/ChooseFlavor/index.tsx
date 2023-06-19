@@ -23,7 +23,7 @@ const ChooseFlavor: FC<ChooseFlavorProps> = ({selectedLanguage, translations }) 
                     height: '750px',
                 }}>
                 <ImageContainer>
-                    <Image src={images.yourflavor} alt='yourflavor'/>
+                    <Image src={images.cakeItem2} alt='yourflavor'/>
                 </ImageContainer>
                 <Box
                     style={{

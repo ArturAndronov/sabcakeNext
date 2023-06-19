@@ -21,8 +21,9 @@ const AboutMe: FC<AboutMeProps> = ({selectedLanguage, translations}) => {
     const currentTranslations = translations[selectedLanguage];
 
     return (
-        <ThemeProvider theme={theme}>
             <Box id="portfolio" style={{
+                display: 'flex',
+                justifyContent : 'center',
                 backgroundImage: `url(${images.aboutme.src})`,
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
@@ -31,8 +32,10 @@ const AboutMe: FC<AboutMeProps> = ({selectedLanguage, translations}) => {
                 height: '753px',
             }}>
                 <Box style={{
-                    padding: "115px 0px 0px 40px",
                     display: "flex",
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    flexWrap: 'wrap',
                 }}>
                     <ImageContainer>
                         <Image
@@ -44,7 +47,6 @@ const AboutMe: FC<AboutMeProps> = ({selectedLanguage, translations}) => {
                         style={{
                             display: "flex",
                             flexDirection: 'column',
-                            paddingLeft: "20px"
                         }}>
                         <Typography
                             style={{
@@ -55,7 +57,7 @@ const AboutMe: FC<AboutMeProps> = ({selectedLanguage, translations}) => {
                                 fontWeight: "500",
                                 fontSize: "36px",
                                 lineHeight: "43px",
-                                paddingBottom: "25px"
+                                paddingBottom: '25px'
                             }}
                         >
                             {currentTranslations.titleAboutMe}
@@ -63,20 +65,18 @@ const AboutMe: FC<AboutMeProps> = ({selectedLanguage, translations}) => {
 
                         <Typography
                             style={{
-                                padding: "25px 0px",
                                 maxWidth: "600px",
                                 color: "#fff",
                                 fontFamily: 'Quicksand',
                                 fontWeight: "500",
                                 fontSize: "18px",
-
+                                paddingTop: '25px'
                             }}>
                             {currentTranslations.descriptionAboutMe}
                         </Typography>
                     </Box>
                     <Box style={{
-                        paddingLeft: "75px",
-                        width: "600px",
+                        maxWidth: "600px",
                         display: "flex",
                         flexDirection: "row"
                     }}>
@@ -84,7 +84,6 @@ const AboutMe: FC<AboutMeProps> = ({selectedLanguage, translations}) => {
                     </Box>
                 </Box>
             </Box>
-        </ThemeProvider>
     )
 }
 

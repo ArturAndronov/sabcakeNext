@@ -3,6 +3,7 @@ import cakeItem3 from './img/cakeItem3.png'
 import cakeItem4 from './img/cakeItem4.png'
 import cakeItem5 from './img/cakeItem5.png'
 import cakeItem6 from './img/cakeItem6.png'
+import cakeItem7 from './img/cakeItem7.png'
 import certificate1 from './img/ certificates/certificate1.png'
 import certificate2 from './img/ certificates/certificate2.png'
 import certificate3 from './img/ certificates/certificate3.png'
@@ -38,6 +39,7 @@ const images = {
     cakeItem4: cakeItem4,
     cakeItem5: cakeItem5,
     cakeItem6: cakeItem6,
+    cakeItem7: cakeItem7,
     certificate1: certificate1,
     certificate2: certificate2,
     certificate3: certificate3,

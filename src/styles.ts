@@ -8,7 +8,7 @@ export const Container = styled('div')`
 
 `;
 
-export const Header = styled('header')`
+export const Nav = styled('header')`
   position: fixed;
   width: 100%;
   background-color: transparent;
@@ -18,8 +18,7 @@ export const Header = styled('header')`
 
   .container{
     display: flex;
-    justify-content: space-between;
-    padding: 0px 215px;
+    justify-content: space-around;
   }
   
   .logo {
@@ -45,10 +44,8 @@ export const Header = styled('header')`
     }
   }
 `;
-export const Footer = styled('footer')`
- 
-`;
-export const FirstBlock = styled('main')`
+
+export const Header = styled('main')`
   background-image: url(${images.BG.src});
   background-size: cover;
   background-position: center;
@@ -81,7 +78,7 @@ export const FirstBlock = styled('main')`
   }
 `;
 
-export const SecondBlock = styled('div')`
+export const AboutMe = styled('div')`
   display: flex;
   justify-content: center;
   background-image: url(${images.aboutme.src});
@@ -124,26 +121,36 @@ export const SecondBlock = styled('div')`
 
   .imageContainer {
     padding-right: 20px;
-    img {
-      width: 100%;
+    
+    & img {
+      max-width: 100%;
       height: auto;
     }
   }
 `;
 
-export const ThirdBlock = styled('div')`
+export const BestProduct = styled('div')`
   background-color: #fff;
   height: 970px;
-  padding: 100px 320px;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  
-  
-  & .title{
+
+  & .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img{
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  & .title {
     padding-bottom: 40px;
     max-width: 620px;
-    h1{
+
+    h1 {
       border-bottom: 3px solid #C9A74D;
       font-family: Rubik;
       font-style: normal;
@@ -153,7 +160,8 @@ export const ThirdBlock = styled('div')`
       padding-bottom: 25px;
       text-align: center;
     }
-    p{
+
+    p {
       padding: 25px 0px;
       font-family: Quicksand;
       font-weight: 400;
@@ -161,26 +169,231 @@ export const ThirdBlock = styled('div')`
       text-align: center;
     }
   }
+
   & .content {
     display: flex;
-    padding-bottom: 70px;
-    
-    & .number{
-      width: 65px;
-      height: 65px;
-      border-radius: 50%;
-      background-color: #000;
-      display: grid;
-      grid-template-columns: 65px 1fr;
-      align-items: center;
-      justify-items: center;
-      color: #FFFFFF;
-      font-size: 24px;
-      font-weight: bold;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    & .contentContainer {
+      display: flex;
+      flex-direction: column;
+      padding-right: 20px;
+
+      & .contentBlock {
+        display: flex;
+        padding-bottom: 70px;
+        & .number {
+          width: 65px;
+          height: 65px;
+          border-radius: 50%;
+          background-color: #000;
+          display: grid;
+          grid-template-columns: 65px 1fr;
+          align-items: center;
+          justify-items: center;
+          color: #FFFFFF;
+          font-size: 24px;
+          font-weight: bold;
+        }
+        & .contentInfo {
+          display: flex;
+          flex-direction: column;
+          max-width: 260px;
+          padding-left: 25px;
+          
+          h1 {
+            font-family: Rubik;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 21px;
+            padding-bottom: 17px;
+          }
+          p{
+            font-family: Quicksand;
+            font-weight: 400;
+            font-size: 14px;
+          }
+        }
+      }
     }
   }
 `;
 
-export const FourBlock = styled('div')`
+export const Review = styled('div')`
+  background-image: url(${images.review.src});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 713px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  .ReviewContent{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+    h1{
+      border-bottom: 3px solid #C9A74D;
+      font-family: Rubik;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 36px;
+      line-height: 43px;
+      padding-bottom: 25px;
+    }
+    p{
+      max-width: 992px;
+      padding: 25px 0px;
+      font-family: Quicksand;
+      font-weight: 400;
+      font-size: 24px;
+      text-align: center;
+    }
+    span{
+      font-family: Rubik;
+      font-weight: 400;
+      font-size: 31px;
+      line-height: 38px;
+      text-align: center;
+      padding-bottom: 45px;
+    }
+  }
+`;
+export const ChooseFlavor = styled('div')`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #FDFAF4;
+  height: 750px;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .ChooseContent {
+    h1 {
+      border-bottom: 3px solid #C9A74D;
+      font-family: Rubik;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 36px;
+      line-height: 43px;
+      padding-bottom: 25px;
+    }
+
+    p {
+      padding: 25px 0px;
+      max-width: 700px;
+      font-weight: 400;
+      font-size: 18px;
+    }
+  }
+`;
+export const CakePops = styled('div')`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #fff;
+  height: 750px;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .CakePopsContent {
+    h1 {
+      border-bottom: 3px solid #C9A74D;
+      font-family: Rubik;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 36px;
+      line-height: 43px;
+      padding-bottom: 25px;
+    }
+
+    p {
+      padding: 25px 0px 105px 0px;
+      max-width: 566px;
+      font-weight: 400;
+      font-size: 18px;
+    }
+  }
+`;
+export const OurMenu = styled('div')`
+  background-image: url(${images.ourmenu.src});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 1157px;
+  display: flex;
+  align-items: center;
+
+  .OurMenuContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .OurMenuTitle {
+      padding-bottom: 50px;
+      max-width: 620px;
+      
+      h1 {
+        border-bottom: 3px solid #C9A74D;
+        color: #fff;
+        font-family: Rubik;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 43px;
+        padding-bottom: 25px;
+        text-align: center;
+      }
+
+      p {
+        padding-top: 25px;
+        font-family: Quicksand;
+        color: #fff;
+        font-weight: 400;
+        font-size: 18px;
+        text-align: center;
+      }
+    }
+
+    .OurMenuContent {
+      display: flex;
+      padding-bottom: 60px;
+      img{
+        max-height: 200px;
+        max-width: 200px;
+      }
+      h1 {
+        color: #fff;
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 36px;
+      }
+
+      p {
+        padding: 25px 0px;
+        font-family: Poppins;
+        color: #fff;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 21px;
+      }
+    }
+  }
+`;
+export const Footer = styled('footer')`
  
 `;

@@ -1,6 +1,6 @@
 import {
     AboutMe, BestProduct, CakePops, ChooseFlavor,
-    Footer,
+    Footer, Gallery,
     Header,
     Nav, OurMenu, Review,
 } from "@/styles";
@@ -10,6 +10,9 @@ import Image from "next/image";
 import Link from "@mui/material/Link";
 import {CustomButton} from "@/components/ui/Header/style";
 import {ImageContainer} from "@/components/ui/AboutMe/style";
+import {CustomButtonOurMenu, LinkOurMenu} from "@/components/ui/OurMenu/style";
+import GalleryCarousel from "@/components/ui/GalleryCarousel/GalleryCarousel";
+import {FooterBoxImg} from "@/components/common/Footer/style";
 
 const Verstka = () => {
     return (
@@ -225,25 +228,148 @@ const Verstka = () => {
                             to
                             win your heart and provide the most sophisticated taste experience.</p>
                     </div>
+                    <div className='OurMenuContentContainer'>
+                        <div className='OurMenuContent'>
+                            <div>
+                                <Image src={images.cakeItem2} alt='snikers'/>
+                            </div>
+                            <div>
+                                <h1>
+                                    “Snickers”
+                                </h1>
+                                <p>
+                                    Сhocolate-nut filling that immerses you in a magical world. A blend of smooth peanut
+                                    butter cream, sweet caramel and crunchy nuts strikes an unbeatable balance between
+                                    softness and texture, bursting in your mouth with absolute bliss.
+                                </p>
+                            </div>
+                        </div>
 
-                    <div className='OurMenuContent'>
-                        <div>
-                            <Image src={images.cakeItem2} alt='snikers'/>
+                        <div className='OurMenuContent'>
+                            <div>
+                                <Image src={images.cakeItem5} alt='Meringue cake'/>
+                            </div>
+                            <div>
+                                <h1>
+                                    Meringue cake
+                                </h1>
+                                <p>
+                                    Meringue roll starts with a thin layer of fluffy and tender meringue, baked until
+                                    golden
+                                    brown. Its lightness and fragility create the perfect base for this dessert, giving
+                                    it
+                                    an elegant look. Then a luxurious layer of cream is applied to the meringue, which
+                                    adds
+                                    a rich and unique taste to the dessert.
+                                </p>
+                            </div>
                         </div>
-                        <div>
-                            <h1>
-                                “Snickers”
-                            </h1>
-                            <p>
-                                Сhocolate-nut filling that immerses you in a magical world. A blend of smooth peanut
-                                butter cream, sweet caramel and crunchy nuts strikes an unbeatable balance between
-                                softness and texture, bursting in your mouth with absolute bliss.
-                            </p>
+
+                        <div className='OurMenuContent'>
+                            <div>
+                                <Image src={images.cakeItem3} alt='Honey'/>
+                            </div>
+                            <div>
+                                <h1>
+                                    "Honey"
+                                </h1>
+                                <p>
+                                    "Honey cake" is a true work of art, combining delicate honey gingerbread and
+                                    airy buttercream. Each layer of this cake is soaked in fragrant honey and
+                                    creates the perfect combination of spiciness and sweetness.
+                                </p>
+                            </div>
                         </div>
+
+                        <div className='OurMenuContent'>
+                            <div>
+                                <Image src={images.cakeItem6} alt='Cupcake'/>
+                            </div>
+                            <div>
+                                <h1>
+                                    Cupcake
+                                </h1>
+                                <p>
+                                    Сupcakes are little pieces of joy that will win your heart with their flavors,
+                                    textures
+                                    and attractive appearance.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <CustomButtonOurMenu>
+                            <LinkOurMenu href="/">
+                                Order now
+                            </LinkOurMenu>
+                        </CustomButtonOurMenu>
                     </div>
                 </div>
             </OurMenu>
-            <Footer></Footer>
+            <GalleryCarousel/>
+            <Footer>
+                <div className='container'>
+                    <div className='contentContainer'>
+                        <div className='title'>
+                            <Image src={images.logowhite} alt='logowhite'/>
+                            <p>Experience the Korean gastronomy with Susans Table at the comfort of your home.</p>
+                            <div className='socialmedia'>
+                                <Link href="https://www.instagram.com/sab_icake/">
+                                    <Image src={images.instagram} alt="instagram"/>
+                                </Link>
+                                <Link href="/">
+                                    <Image src={images.facebook} alt="facebook"/>
+                                </Link>
+                                <Link href="https://wa.me/972585001993">
+                                    <Image src={images.whatsapp} alt="whatsapp"/>
+                                </Link>
+                            </div>
+                        </div>
+                        <div className='link'>
+                            <p>Support</p>
+                            <Link href=''>
+                                Account
+                            </Link>
+                            <Link href=''>
+                                Support
+                            </Link>
+                            <Link href=''>
+                                Feedback
+                            </Link>
+                        </div>
+                        <div className='link'>
+                            <p>Quck Links</p>
+                            <Link href="/">
+                                Home
+                            </Link>
+                            <Link href="/">
+                                Gallery
+                            </Link>
+                            <Link href="/">
+                                Shop
+                            </Link>
+                            <Link href="/">
+                                Portfolio
+                            </Link>
+                        </div>
+                        <div className='contact'>
+                            <span>Contact Us</span>
+                            <p>
+                                Israel, Haifa
+                            </p>
+                            <p>
+                                Phone: +972 58-500-1993
+                            </p>
+                            <p>
+                                Email: team@icelab.com
+                            </p>
+                        </div>
+                    </div>
+                    <div className='copyright'>
+                        <p>SabCake © 2023 .All Rights Reserved.</p>
+                    </div>
+                </div>
+            </Footer>
         </>
     )
 }

@@ -335,16 +335,25 @@ export const OurMenu = styled('div')`
   height: 1157px;
   display: flex;
   align-items: center;
+  justify-content: center;
 
   .OurMenuContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
 
+    .OurMenuContentContainer {
+      max-width: 1400px;
+      display: flex;
+      grid-column-gap: 230px;
+      flex-wrap: wrap;
+      
+    }
+
     .OurMenuTitle {
       padding-bottom: 50px;
       max-width: 620px;
-      
+
       h1 {
         border-bottom: 3px solid #C9A74D;
         color: #fff;
@@ -370,10 +379,16 @@ export const OurMenu = styled('div')`
     .OurMenuContent {
       display: flex;
       padding-bottom: 60px;
-      img{
+
+      div:nth-child(2) {
+        padding-left: 15px;
+      }
+
+      img {
         max-height: 200px;
         max-width: 200px;
       }
+
       h1 {
         color: #fff;
         font-family: Poppins;
@@ -384,6 +399,7 @@ export const OurMenu = styled('div')`
       }
 
       p {
+        max-width: 369px;
         padding: 25px 0px;
         font-family: Poppins;
         color: #fff;
@@ -395,5 +411,96 @@ export const OurMenu = styled('div')`
   }
 `;
 export const Footer = styled('footer')`
- 
+  background-color: #000;
+  width: 100%;
+  height: 408px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .copyright {
+      p {
+        color: #FFF;
+        font-size: 18px;
+        font-family: Poppins;
+        text-align: center;
+      }
+    }
+
+    .contentContainer {
+      display: flex;
+      flex-wrap: wrap;
+      grid-column-gap: 115px;
+      padding-bottom: 50px;
+
+      .contact {
+        span {
+          color: #FFF;
+          font-size: 18px;
+          font-family: Poppins;
+          font-weight: 600;
+        }
+
+        p {
+          color: #FFF;
+          font-size: 14px;
+          font-family: Poppins;
+        }
+      }
+
+      .link {
+        display: flex;
+        flex-direction: column;
+        color: #fff;
+
+        & > a {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 30px;
+          text-decoration: none;
+          color: #fff;
+          border-bottom: 2px solid transparent;
+          transition: border-bottom 0.3s ease;
+
+          &:hover {
+            border-bottom: 2px solid #fff;
+          }
+        }
+
+        p {
+          font-family: Poppins;
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 27px;
+          padding-bottom: 5px;
+        }
+      }
+
+      .title {
+        p {
+          max-width: 450px;
+          color: white;
+          font-family: Poppins;
+          font-size: 14px;
+          line-height: 21px;
+          padding-top: 10px;
+        }
+
+        .socialmedia {
+          padding-top: 15px;
+
+          > a {
+            margin-right: 15px;
+          }
+        }
+      }
+    }
+  }
 `;

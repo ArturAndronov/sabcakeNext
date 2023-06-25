@@ -8,42 +8,58 @@ export const Container = styled('div')`
 
 `;
 
-export const Nav = styled('header')`
-  position: fixed;
-  width: 100%;
-  background-color: transparent;
-  box-shadow: none;
-  padding: 10px;
-  backdrop-filter: saturate(180%) blur(20px);
+    export const Nav = styled('header')`
+      position: fixed;
+      width: 100%;
+      background-color: transparent;
+      box-shadow: none;
+      padding: 10px;
+      backdrop-filter: saturate(180%) blur(20px);
+    
+      .container{
+        display: flex;
+        justify-content: space-around;
+      }
+      
+      .logo {
+        display: flex;
+        align-items: center;
+        img{
+          max-width: 100%;
+          height: auto;
+        }
+      }
+    
+      .menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        a{
+          color: #000;
+          margin-right: 65px;
+          text-decoration: none;
+          border-bottom: 2px solid transparent;
+          transition: border-bottom 0.3s ease;
 
-  .container{
-    display: flex;
-    justify-content: space-around;
-  }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-  }
-
-  .menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .menu > a {
-    color: #000;
-    margin-right: 65px;
-    text-decoration: none;
-    border-bottom: 2px solid transparent;
-    transition: border-bottom 0.3s ease;
-
-    &:hover {
-      border-bottom: 2px solid #000000;
-    }
-  }
-`;
+          &:hover {
+            border-bottom: 2px solid #000000;
+          }
+        }
+        a:nth-child(4) {
+          margin-right: 0px;
+        }
+      }
+      
+      @media (max-width: 390px) {
+        .logo{
+          width: 115px;
+        }
+        .menu > a {
+          margin-right: 15px;
+        }
+      }
+    `;
 
 export const Header = styled('main')`
   background-image: url(${images.BG.src});
@@ -76,6 +92,24 @@ export const Header = styled('main')`
     font-weight: 400;
     font-size: 24px;
   }
+
+  @media (max-width: 390px) {
+    height: 750px;
+    .container{
+      
+      h1{
+        font-size: 76px;
+        line-height: 74px;
+        padding-bottom: 15px;
+        text-align: center;
+      }
+      p{
+        text-align: center;
+      }
+      align-items: center;
+      padding: 0px;
+    }
+  }
 `;
 
 export const AboutMe = styled('div')`
@@ -98,7 +132,7 @@ export const AboutMe = styled('div')`
   & .aboutMeContent {
     padding-right: 50px;
   }
-  
+
   h1 {
     color: #fff;
     border-bottom: 3px solid #C9A74D;
@@ -121,10 +155,43 @@ export const AboutMe = styled('div')`
 
   .imageContainer {
     padding-right: 20px;
-    
+
     & img {
       max-width: 100%;
       height: auto;
+    }
+  }
+
+  @media (max-width: 390px) {
+    height: 1300px;
+    .container {
+      justify-content: center;
+    }
+
+    .imageContainer {
+      padding: 0px;
+
+      img {
+        width: 350px;
+      }
+    }
+
+    h1 {
+      text-align: center;
+      font-weight: 200;
+      font-size: 28px;
+      padding-bottom: 5px;
+    }
+
+    p {
+      text-align: center;
+      font-weight: 500;
+      font-size: 14px;
+      padding-top: 5px;
+    }
+
+    .aboutMeContent {
+      padding: 0px;
     }
   }
 `;
@@ -219,6 +286,10 @@ export const BestProduct = styled('div')`
       }
     }
   }
+
+  @media (max-width: 390px) {
+    height: 1950px;
+  }
 `;
 
 export const Review = styled('div')`
@@ -261,6 +332,27 @@ export const Review = styled('div')`
       line-height: 38px;
       text-align: center;
       padding-bottom: 45px;
+    }
+  }
+
+  @media (max-width: 390px) {
+    .ReviewContent {
+      h1 {
+        font-size: 28px;
+        line-height: 32px;
+        padding-bottom: 15px;
+      }
+
+      p {
+        padding: 15px 0px;
+        font-size: 20px;
+      }
+
+      span {
+        font-size: 31px;
+        line-height: 38px;
+        padding-bottom: 45px;
+      }
     }
   }
 `;

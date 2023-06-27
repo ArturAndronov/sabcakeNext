@@ -51,7 +51,7 @@ export const Container = styled('div')`
         }
       }
       
-      @media (max-width: 390px) {
+      @media (max-width: 420px) {
         .logo{
           width: 115px;
         }
@@ -93,7 +93,7 @@ export const Header = styled('main')`
     font-size: 24px;
   }
 
-  @media (max-width: 390px) {
+  @media (max-width: 420px) {
     height: 750px;
     .container{
       
@@ -110,6 +110,7 @@ export const Header = styled('main')`
       padding: 0px;
     }
   }
+  
 `;
 
 export const AboutMe = styled('div')`
@@ -162,7 +163,7 @@ export const AboutMe = styled('div')`
     }
   }
 
-  @media (max-width: 390px) {
+  @media (max-width: 420px) {
     height: 1300px;
     .container {
       justify-content: center;
@@ -287,7 +288,7 @@ export const BestProduct = styled('div')`
     }
   }
 
-  @media (max-width: 390px) {
+  @media (max-width: 420px) {
     height: 1950px;
   }
 `;
@@ -335,7 +336,7 @@ export const Review = styled('div')`
     }
   }
 
-  @media (max-width: 390px) {
+  @media (max-width: 420px) {
     .ReviewContent {
       h1 {
         font-size: 28px;
@@ -380,10 +381,36 @@ export const ChooseFlavor = styled('div')`
     }
 
     p {
-      padding: 25px 0px;
+      padding: 25px 0px 40px 0px;
       max-width: 700px;
       font-weight: 400;
       font-size: 18px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    flex-direction: column;
+    
+    img {
+      width: 300px;
+    }
+
+    .ChooseContent {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      
+      h1 {
+        font-size: 32px;
+        line-height: 36px;
+        padding-bottom: 25px;
+      }
+
+      p {
+        text-align: center;
+        padding: 15px 0px 30px 0px;
+        font-size: 16px;
+      }
     }
   }
 `;
@@ -411,10 +438,35 @@ export const CakePops = styled('div')`
     }
 
     p {
-      padding: 25px 0px 105px 0px;
+      padding: 25px 0px 40px 0px;
       max-width: 566px;
       font-weight: 400;
       font-size: 18px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    flex-direction: column-reverse;
+
+    img {
+      width: 300px;
+    }
+
+    .CakePopsContent {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      h1 {
+        font-size: 32px;
+        line-height: 36px;
+        padding-bottom: 15px;
+      }
+
+      p {
+        text-align: center;
+        padding: 15px 0px 30px 0px;
+        font-size: 16px;
+      }
     }
   }
 `;
@@ -439,7 +491,7 @@ export const OurMenu = styled('div')`
       display: flex;
       grid-column-gap: 230px;
       flex-wrap: wrap;
-      
+
     }
 
     .OurMenuTitle {
@@ -501,6 +553,35 @@ export const OurMenu = styled('div')`
       }
     }
   }
+
+  @media (max-width: 420px) {
+    height: 1700px;
+    .OurMenuContainer {
+      .OurMenuTitle {
+        h1 {
+          font-size: 32px;
+          padding-bottom: 15px;
+        }
+
+        p {
+          padding-top: 15px;
+          font-size: 16px;
+        }
+      }
+
+      .OurMenuContent {
+        h1 {
+          font-size: 22px;
+        }
+
+        p {
+          padding: 15px 0px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
 `;
 export const Footer = styled('footer')`
   background-color: #000;
@@ -591,6 +672,25 @@ export const Footer = styled('footer')`
           > a {
             margin-right: 15px;
           }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 420px) {
+    height: 600px;
+    .contentContainer{
+      justify-content: center;
+      .contact{
+        margin-top: 30px;
+      }
+      .title{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 30px;
+        p{
+          text-align: center;
         }
       }
     }

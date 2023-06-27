@@ -4,14 +4,24 @@ export const GalleryContainer = styled(Box)`
   width: 100%;
   margin: 0 auto;
   background-color: #000;
-
+  
   .slick-slider {
     display: flex;
-    flex-wrap: wrap;
+   
+  }
+  .slick-prev {
+    z-index: 1;
+    left: 10px;
   }
 
+  .slick-next {
+    right: 10px;
+  }
+  .slick-dots {
+    display: none !important;
+  }
   .slick-slide > div {
-    width: 100%;~
+    width: 100%;
   }
 `;
 export const GalleryBox = styled.div`

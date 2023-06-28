@@ -308,23 +308,23 @@ const Verstka = () => {
             </OurMenu>
             <GalleryCarousel/>
             <Footer>
-                <div className='container'>
-                    <div className='contentContainer'>
-                        <div className='title'>
-                            <Image src={images.logowhite} alt='logowhite'/>
-                            <p>Experience the Korean gastronomy with Susans Table at the comfort of your home.</p>
-                            <div className='socialmedia'>
-                                <Link href="https://www.instagram.com/sab_icake/">
-                                    <Image src={images.instagram} alt="instagram"/>
-                                </Link>
-                                <Link href="/">
-                                    <Image src={images.facebook} alt="facebook"/>
-                                </Link>
-                                <Link href="https://wa.me/972585001993">
-                                    <Image src={images.whatsapp} alt="whatsapp"/>
-                                </Link>
-                            </div>
+                <div className='contentContainer'>
+                    <div className='title'>
+                        <Image src={images.logowhite} alt='logowhite'/>
+                        <p>Experience the Korean gastronomy with Susans Table at the comfort of your home.</p>
+                        <div className='socialmedia'>
+                            <Link href="https://www.instagram.com/sab_icake/">
+                                <Image src={images.instagram} alt="instagram"/>
+                            </Link>
+                            <Link href="/">
+                                <Image src={images.facebook} alt="facebook"/>
+                            </Link>
+                            <Link href="https://wa.me/972585001993">
+                                <Image src={images.whatsapp} alt="whatsapp"/>
+                            </Link>
                         </div>
+                    </div>
+                    <div className='linkWrapper'>
                         <div className='link'>
                             <p>Support</p>
                             <Link href=''>
@@ -352,22 +352,22 @@ const Verstka = () => {
                                 Portfolio
                             </Link>
                         </div>
-                        <div className='contact'>
-                            <span>Contact Us</span>
-                            <p>
-                                Israel, Haifa
-                            </p>
-                            <p>
-                                Phone: +972 58-500-1993
-                            </p>
-                            <p>
-                                Email: team@icelab.com
-                            </p>
-                        </div>
                     </div>
-                    <div className='copyright'>
-                        <p>SabCake © 2023 .All Rights Reserved.</p>
+                    <div className='contact'>
+                        <span>Contact Us</span>
+                        <p>
+                            Israel, Haifa
+                        </p>
+                        <p>
+                            Phone: +972 58-500-1993
+                        </p>
+                        <p>
+                            Email: team@icelab.com
+                        </p>
                     </div>
+                </div>
+                <div className='copyright'>
+                    <p>SabCake © 2023 .All Rights Reserved.</p>
                 </div>
             </Footer>
         </>

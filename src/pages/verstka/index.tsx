@@ -1,6 +1,6 @@
 import {
     AboutMe, BestProduct, CakePops, ChooseFlavor,
-    Footer, Gallery,
+    Footer,
     Header,
     Nav, OurMenu, Review,
 } from "@/styles";
@@ -9,12 +9,24 @@ import images from "@/assets/image";
 import Image from "next/image";
 import Link from "@mui/material/Link";
 import {CustomButton} from "@/components/ui/Header/style";
-import {ImageContainer} from "@/components/ui/AboutMe/style";
 import {CustomButtonOurMenu, LinkOurMenu} from "@/components/ui/OurMenu/style";
 import GalleryCarousel from "@/components/ui/GalleryCarousel/GalleryCarousel";
-import {FooterBoxImg} from "@/components/common/Footer/style";
+import MenuIcon from "@mui/icons-material/Menu";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import {IconButton, useMediaQuery} from "@mui/material";
 
 const Verstka = () => {
+    const isMobile = useMediaQuery('(max-width: 768px)'); // Проверка на мобильное устройство
+    const [anchorEl, setAnchorEl] = React.useState(null);
+
+    const handleClickMenu = (event: any) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleCloseMenu = () => {
+        setAnchorEl(null);
+    };
     return (
         <>
             <Nav>
@@ -24,12 +36,54 @@ const Verstka = () => {
                             src={images.logo}
                             alt="Logo"
                         /></div>
+
                     <div className="menu">
-                        <a href="/verstka">Home</a>
-                        <a href="#gallerycarousel">Gallery</a>
-                        <a href="/shop">Shop</a>
-                        <a href="#portfolio">Portfolio</a>
+                        {!isMobile && (
+                            <div>
+                                <a href="/verstka">Home</a>
+                                <a href="#gallerycarousel">Gallery</a>
+                                <a href="/shop">Shop</a>
+                                <a href="#portfolio">Portfolio</a>
+                            </div>
+                        )}
+                        <div>
+                            {isMobile && (
+                                <IconButton
+                                    size="large"
+                                    edge="start"
+                                    color="default"
+                                    aria-label="menu"
+                                    onClick={handleClickMenu}
+                                >
+                                    <MenuIcon/>
+                                </IconButton>
+                            )}
+
+                            <Menu
+                                id="basic-menu"
+                                anchorEl={anchorEl}
+                                open={Boolean(anchorEl)}
+                                onClose={handleCloseMenu}
+                                MenuListProps={{
+                                    'aria-labelledby': 'basic-button',
+                                }}
+                            >
+                                <MenuItem onClick={handleCloseMenu}>
+                                    <Link href="/verstka">Home</Link>
+                                </MenuItem>
+                                <MenuItem onClick={handleCloseMenu}>
+                                    <Link href="#gallerycarousel">Gallery</Link>
+                                </MenuItem>
+                                <MenuItem onClick={handleCloseMenu}>
+                                    <Link href="/shop">Shop</Link>
+                                </MenuItem>
+                                <MenuItem onClick={handleCloseMenu}>
+                                    <Link href="#portfolio">Portfolio</Link>
+                                </MenuItem>
+                            </Menu>
+                        </div>
                     </div>
+
 
                 </div>
             </Nav>

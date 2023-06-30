@@ -52,6 +52,9 @@ export const Container = styled('div')`
       }
       
       @media (max-width: 420px) {
+        .container{
+          justify-content: space-between;
+        }
         .logo{
           width: 115px;
         }

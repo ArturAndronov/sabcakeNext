@@ -22,30 +22,30 @@ const SliderComponent: FC = () => {
         <SliderContainer>
             <SliderBox>
                 <Slider {...settings}>
-                    <ImageContainer>
+                    <div className='imageContainer'>
                         <Image
                             src={images.certificate1}
                             alt="1"
                         />
-                    </ImageContainer>
-                    <ImageContainer>
+                    </div>
+                    <div className='imageContainer'>
                         <Image
                             src={images.certificate2}
                             alt="2"
                         />
-                    </ImageContainer>
-                    <ImageContainer>
+                    </div>
+                    <div className='imageContainer'>
                         <Image
                             src={images.certificate3}
                             alt="3"
                         />
-                    </ImageContainer>
-                    <ImageContainer>
+                    </div>
+                    <div className='imageContainer'>
                         <Image
                             src={images.certificate4}
                             alt="4"
                         />
-                    </ImageContainer>
+                    </div>
                 </Slider>
             </SliderBox>
         </SliderContainer>

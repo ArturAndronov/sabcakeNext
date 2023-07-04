@@ -10,7 +10,14 @@ export const SliderContainer = styled(Box)`
 export const SliderBox = styled(Box)`
   width: 100%;
   margin-top: 50px;
+  
+  .imageContainer {
+    padding: 0px;
 
+    img {
+      max-width: 500px;
+    }
+  }
 
   .slick-list {
     margin: 0 -10px;
@@ -21,11 +28,11 @@ export const SliderBox = styled(Box)`
 
   /* Изменение расстояния между кнопками */
   .slick-prev {
-    left: -50px;
+    left: 50px;
   }
 
   .slick-next {
-    right: -40px;
+    right: 40px;
   }
   
   /* Стили для активного кружка */

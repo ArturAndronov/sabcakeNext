@@ -1,89 +1,43 @@
 import React, {FC} from 'react';
 
-import Layout from "@/components/common/Layout"
-
-import {Box, Typography} from "@mui/material";
-import {createTheme, ThemeProvider} from "@mui/material/styles";
-
 import images from "@/assets/image";
 import Image from "next/image";
 import SliderComponent from "@/components/ui/SliderComponent";
-import {Translations} from "@/pages";
-import {ImageContainer} from "@/components/ui/AboutMe/style";
+import {AboutMeContainer} from "@/components/ui/AboutMe/style";
 
-interface AboutMeProps {
-    selectedLanguage: string;
-    translations: Translations;
-}
-
-const theme = createTheme();
-const AboutMe: FC<AboutMeProps> = ({selectedLanguage, translations}) => {
-    const currentTranslations = translations[selectedLanguage];
+const AboutMe: FC = () => {
 
     return (
-            <Box id="portfolio" style={{
-                display: 'flex',
-                justifyContent : 'center',
-                backgroundImage: `url(${images.aboutme.src})`,
-                backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-                width: '100%',
-                height: '753px',
-            }}>
-                <Box style={{
-                    display: "flex",
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    flexWrap: 'wrap',
-                }}>
-                    <ImageContainer>
+        <>
+            <AboutMeContainer>
+                <div id="portfolio" className='container'>
+                    <div className='imageContainer'>
                         <Image
                             src={images.sab}
                             alt='MyPhoto'
                         />
-                    </ImageContainer>
-                    <Box
-                        style={{
-                            display: "flex",
-                            flexDirection: 'column',
-                        }}>
-                        <Typography
-                            style={{
-                                color: "#fff",
-                                borderBottom: "3px solid #C9A74D",
-                                fontFamily: 'Rubik',
-                                fontStyle: "normal",
-                                fontWeight: "500",
-                                fontSize: "36px",
-                                lineHeight: "43px",
-                                paddingBottom: '25px'
-                            }}
-                        >
-                            {currentTranslations.titleAboutMe}
-                        </Typography>
-
-                        <Typography
-                            style={{
-                                maxWidth: "600px",
-                                color: "#fff",
-                                fontFamily: 'Quicksand',
-                                fontWeight: "500",
-                                fontSize: "18px",
-                                paddingTop: '25px'
-                            }}>
-                            {currentTranslations.descriptionAboutMe}
-                        </Typography>
-                    </Box>
-                    <Box style={{
-                        maxWidth: "600px",
-                        display: "flex",
-                        flexDirection: "row"
-                    }}>
-                            <SliderComponent/>
-                    </Box>
-                </Box>
-            </Box>
+                    </div>
+                    <div className='aboutMeContent'>
+                        <h1>About me</h1>
+                        <p>My name is Sabina and I am a home pastry chef! Sweets have always been present in my life and
+                            have been an integral part of it, looking back now, I understand that cooking various dishes
+                            has always attracted and fascinated me, with the birth of my son, the craving for making
+                            delicious , natural and homemade food has become even stronger, my son has become my
+                            incentive to realize himself as a pastry chef, every New month of his life I was celebrating
+                            with a new cake and it was a small step on the way to a big dream. With each new cake, my
+                            skills increased, and the desire to master new techniques and processes grew, the birth of
+                            my daughter only increased this interest, and moving to a new country became one of the most
+                            important stages for me in a new place, everything sparkled with new colors, new friends and
+                            acquaintances appeared, who inspired new achievements and pushed me to a new step- and so,
+                            step by step , I became who I am now, a home- made pastry chef with a great love for his
+                            work and big dreams and plans for the future .</p>
+                    </div>
+                    <div className='imageContainer'>
+                        <SliderComponent/>
+                    </div>
+                </div>
+            </AboutMeContainer>
+        </>
     )
 }
 

@@ -15,7 +15,7 @@ export const Container = styled('div')`
       box-shadow: none;
       padding: 10px;
       backdrop-filter: saturate(180%) blur(20px);
-    
+      
       .container{
         display: flex;
         justify-content: space-around;
@@ -50,7 +50,7 @@ export const Container = styled('div')`
           margin-right: 0px;
         }
       }
-      
+     
       @media (max-width: 420px) {
         .container{
           justify-content: space-between;

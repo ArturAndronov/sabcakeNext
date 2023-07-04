@@ -1,44 +1,22 @@
 import React, {FC} from 'react'
-import images from "@/assets/image";
-import {Box, Typography} from "@mui/material";
+
 import CommentsSlider from "@/components/ui/CommentsSlider";
+import {ReviewContainer} from "@/components/ui/Review/style";
 
 const Review: FC = () => {
     return (
         <>
-            <Box style={{
-                backgroundImage: `url(${images.review.src})`,
-                backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-                width: '100%',
-                height: '713px',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center'
-            }}>
-                <Box
-                    style={{
-                        display: "flex",
-                        flexDirection: 'column',
-                        alignItems: "center"
-                    }}>
-                    <Typography
-                        style={{
-                            borderBottom: "3px solid #C9A74D",
-                            fontFamily: 'Rubik',
-                            fontStyle: "normal",
-                            fontWeight: "500",
-                            fontSize: "36px",
-                            lineHeight: "43px",
-                            paddingBottom: "25px"
-                        }}
-                    >
-                        Reviews
-                    </Typography>
-                   <CommentsSlider />
-                </Box>
-            </Box>
+            <ReviewContainer>
+                <div className='ReviewContent'>
+                    <h1>Reviews</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit dictumst curabitur interdum leo, nunc
+                        aptent himenaeos convallis porttitor consequat placerat laoreet quisque molestie facilisis
+                        mauris, sociosqu egestas magnis urna ultrices maecenas non litora aliquet dignissim. Metus quis
+                        massa platea ultricies fermentum feugiat lectus.</p>
+                    <span>John Doe</span>
+                    {/*<CommentsSlider />*/}
+                </div>
+            </ReviewContainer>
         </>
     )
 }

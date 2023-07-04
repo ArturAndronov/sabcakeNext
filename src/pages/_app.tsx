@@ -5,9 +5,9 @@ import {createWrapper} from 'next-redux-wrapper'
 import {Provider} from 'react-redux'
 import {store} from './../redux/store'
 
-import {ThemeProvider} from "@mui/material/styles";
-import {CssBaseline} from "@mui/material";
+import { appWithTranslation } from 'next-i18next';
 import theme from "@/utils/muiTheme";
+import {ThemeProvider} from "@mui/material/styles";
 
 
 function App({Component, pageProps}: AppProps) {
@@ -15,7 +15,6 @@ function App({Component, pageProps}: AppProps) {
     return (
         <ThemeProvider theme={theme}>
             <Provider store={store}>
-                <CssBaseline />
                 <Component {...pageProps} />
             </Provider>
         </ThemeProvider>
@@ -24,4 +23,4 @@ function App({Component, pageProps}: AppProps) {
 
 const wrapper = createWrapper(() => store)
 
-export default wrapper.withRedux(App)
+export default wrapper.withRedux(appWithTranslation(App))

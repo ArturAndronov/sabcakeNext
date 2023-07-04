@@ -3,246 +3,100 @@ import {Box, Typography} from "@mui/material";
 import images from "@/assets/image";
 import Image from "next/image";
 
-import {CustomButtonOurMenu, LinkOurMenu} from "@/components/ui/OurMenu/style";
-import {Translations} from "@/pages";
+import {CustomButtonOurMenu, LinkOurMenu,OurMenuContainer} from "@/components/ui/OurMenu/style";
 
-interface OurMenuProps {
-    selectedLanguage: string;
-    translations: Translations;
-}
-
-const OurMenu: FC<OurMenuProps> = ({selectedLanguage, translations}) => {
-    const currentTranslations = translations[selectedLanguage];
+const OurMenu: FC = () => {
     return (
         <>
-            <Box
-                style={{
-                    backgroundImage: `url(${images.ourmenu.src})`,
-                    backgroundSize: 'cover',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundPosition: 'center',
-                    width: '100%',
-                    height: '1157px',
-                }}>
-                <Box>
-                    <Box style={{
-                        paddingTop: "122px",
-                        display: 'flex',
-                        flexDirection: "column",
-                        alignItems: "center"
-                    }}>
-                        <Box
-                            style={{
-                                display: "flex",
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                paddingBottom: '50px',
-                                maxWidth: '620px'
-                            }}>
-                            <Typography
-                                style={{
-                                    borderBottom: "3px solid #C9A74D",
-                                    color: "#fff",
-                                    fontFamily: 'Rubik',
-                                    fontStyle: "normal",
-                                    fontWeight: "500",
-                                    fontSize: "36px",
-                                    lineHeight: "43px",
-                                    paddingBottom: "25px",
-                                    textAlign: "center"
-                                }}
-                            >
-                                {currentTranslations.titleOurMenu}
-                            </Typography>
-                            <Typography
-                                style={{
-                                    paddingTop: '25px',
-                                    fontFamily: 'Quicksand',
-                                    color: "#fff",
-                                    fontWeight: "400",
-                                    fontSize: "18px",
-                                    textAlign: "center"
-                                }}>
+            <OurMenuContainer>
+                <div className='OurMenuContainer'>
 
-                                {currentTranslations.descriptionOurMenu}
-                            </Typography>
-                        </Box>
-                    </Box>
-                    <Box style={{
-                        padding: '0px 260px',
-                        display: 'flex',
-                        flexWrap: 'wrap',
-                        justifyContent: 'space-between'
-                    }}>
-                        <LinkOurMenu href="/">
-                            <Box style={{
-                                display: 'flex',
-                                paddingBottom: '60px'
-                            }}>
-                                <Image src={images.cakeItem2} alt='cakepops' height={200} width={200}/>
-                                <Box
-                                    style={{
-                                        display: "flex",
-                                        flexDirection: 'column',
-                                        paddingLeft: "15px",
-                                        maxWidth: '370px',
-                                    }}>
-                                    <Typography
-                                        style={{
-                                            color: "#fff",
-                                            fontFamily: 'Poppins',
-                                            fontStyle: "normal",
-                                            fontWeight: "600",
-                                            fontSize: "24px",
-                                            lineHeight: "36px",
-                                        }}
-                                    >
-                                        {currentTranslations.OurMenuSnikersTitle}
-                                    </Typography>
-                                    <Typography
-                                        style={{
-                                            padding: "25px 0px",
-                                            fontFamily: 'Poppins',
-                                            color: "#fff",
-                                            fontWeight: "400",
-                                            fontSize: "14px",
-                                            lineHeight: "21px",
-                                        }}>
-                                        {currentTranslations.OurMenuSkinkersDescription}
-                                    </Typography>
-                                </Box>
-                            </Box>
-                        </LinkOurMenu>
-                        <LinkOurMenu href="/">
-                            <Box style={{
-                                display: 'flex',
-                                paddingBottom: '60px'
-                            }}>
-                                <Image src={images.cakeItem5} alt='cakepops' height={200} width={200}/>
-                                <Box
-                                    style={{
-                                        display: "flex",
-                                        flexDirection: 'column',
-                                        paddingLeft: "15px",
-                                        maxWidth: '370px'
-                                    }}>
-                                    <Typography
-                                        style={{
-                                            color: "#fff",
-                                            fontFamily: 'Poppins',
-                                            fontStyle: "normal",
-                                            fontWeight: "600",
-                                            fontSize: "24px",
-                                            lineHeight: "36px",
-                                        }}
-                                    >
-                                        {currentTranslations.OurMenuMeringueTitle}
-                                    </Typography>
-                                    <Typography
-                                        style={{
-                                            padding: "25px 0px",
-                                            fontFamily: 'Poppins',
-                                            color: "#fff",
-                                            fontWeight: "400",
-                                            fontSize: "14px",
-                                            lineHeight: "21px",
-                                        }}>
-                                        {currentTranslations.OurMenuMeringueDescription}
-                                    </Typography>
-                                </Box>
-                            </Box>
-                        </LinkOurMenu>
-                        <LinkOurMenu href="/">
-                            <Box style={{
-                                display: 'flex',
-                                paddingBottom: '60px'
-                            }}>
-                                <Image src={images.cakeItem3} alt='cakepops' height={200} width={200}/>
-                                <Box
-                                    style={{
-                                        display: "flex",
-                                        flexDirection: 'column',
-                                        paddingLeft: "15px",
-                                        maxWidth: '370px'
-                                    }}>
-                                    <Typography
-                                        style={{
-                                            color: "#fff",
-                                            fontFamily: 'Poppins',
-                                            fontStyle: "normal",
-                                            fontWeight: "600",
-                                            fontSize: "24px",
-                                            lineHeight: "36px",
-                                        }}
-                                    >
-                                        {currentTranslations.OurMenuHoneyTitle}
-                                    </Typography>
-                                    <Typography
-                                        style={{
-                                            padding: "25px 0px",
-                                            fontFamily: 'Poppins',
-                                            color: "#fff",
-                                            fontWeight: "400",
-                                            fontSize: "14px",
-                                            lineHeight: "21px",
-                                        }}>
-                                        {currentTranslations.OurMenuHoneyDescription}
-                                    </Typography>
-                                </Box>
-                            </Box>
-                        </LinkOurMenu>
-                        <LinkOurMenu href="/">
-                            <Box style={{
-                                display: 'flex',
-                                paddingBottom: '60px'
-                            }}>
-                                <Image src={images.cakeItem6} alt='cakepops' height={200} width={200}/>
-                                <Box
-                                    style={{
-                                        display: "flex",
-                                        flexDirection: 'column',
-                                        paddingLeft: "15px",
-                                        maxWidth: '370px'
-                                    }}>
-                                    <Typography
-                                        style={{
-                                            color: "#fff",
-                                            fontFamily: 'Poppins',
-                                            fontStyle: "normal",
-                                            fontWeight: "600",
-                                            fontSize: "24px",
-                                            lineHeight: "36px",
-                                        }}
-                                    >
-                                        {currentTranslations.OurMenuCupcakeTitle}
-                                    </Typography>
-                                    <Typography
-                                        style={{
-                                            padding: "25px 0px",
-                                            fontFamily: 'Poppins',
-                                            color: "#fff",
-                                            fontWeight: "400",
-                                            fontSize: "14px",
-                                            lineHeight: "21px",
-                                        }}>
-                                        {currentTranslations.OurMenuCupcakeDescription}
-                                    </Typography>
-                                </Box>
-                            </Box>
-                        </LinkOurMenu>
-                    </Box>
-                    <Box style={{
-                       display: 'flex',
-                        justifyContent: 'center'
-                    }}>
+                    <div className='OurMenuTitle'>
+                        <h1>Our menu</h1>
+                        <p>A variety of flavors and delicious desserts are waiting for you in our menu! We proudly offer
+                            a
+                            wide selection of fresh and delicious cupcakes, cakes and other gourmet sweets that are sure
+                            to
+                            win your heart and provide the most sophisticated taste experience.</p>
+                    </div>
+                    <div className='OurMenuContentContainer'>
+                        <div className='OurMenuContent'>
+                            <div>
+                                <Image src={images.cakeItem2} alt='snikers'/>
+                            </div>
+                            <div>
+                                <h1>
+                                    “Snickers”
+                                </h1>
+                                <p>
+                                    Сhocolate-nut filling that immerses you in a magical world. A blend of smooth peanut
+                                    butter cream, sweet caramel and crunchy nuts strikes an unbeatable balance between
+                                    softness and texture, bursting in your mouth with absolute bliss.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className='OurMenuContent'>
+                            <div>
+                                <Image src={images.cakeItem5} alt='Meringue cake'/>
+                            </div>
+                            <div>
+                                <h1>
+                                    Meringue cake
+                                </h1>
+                                <p>
+                                    Meringue roll starts with a thin layer of fluffy and tender meringue, baked until
+                                    golden
+                                    brown. Its lightness and fragility create the perfect base for this dessert, giving
+                                    it
+                                    an elegant look. Then a luxurious layer of cream is applied to the meringue, which
+                                    adds
+                                    a rich and unique taste to the dessert.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className='OurMenuContent'>
+                            <div>
+                                <Image src={images.cakeItem3} alt='Honey'/>
+                            </div>
+                            <div>
+                                <h1>
+                                    "Honey"
+                                </h1>
+                                <p>
+                                    "Honey cake" is a true work of art, combining delicate honey gingerbread and
+                                    airy buttercream. Each layer of this cake is soaked in fragrant honey and
+                                    creates the perfect combination of spiciness and sweetness.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className='OurMenuContent'>
+                            <div>
+                                <Image src={images.cakeItem6} alt='Cupcake'/>
+                            </div>
+                            <div>
+                                <h1>
+                                    Cupcake
+                                </h1>
+                                <p>
+                                    Сupcakes are little pieces of joy that will win your heart with their flavors,
+                                    textures
+                                    and attractive appearance.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
                         <CustomButtonOurMenu>
                             <LinkOurMenu href="/">
-                                {currentTranslations.button}
+                                Order now
                             </LinkOurMenu>
                         </CustomButtonOurMenu>
-                    </Box>
-                </Box>
-            </Box>
+                    </div>
+                </div>
+            </OurMenuContainer>
         </>
     )
 }

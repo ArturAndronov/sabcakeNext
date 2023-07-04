@@ -4,19 +4,19 @@ import {
     Header,
     Nav, OurMenu, Review,
 } from "@/styles";
-import React from "react";
+import React, {FC} from "react";
 import images from "@/assets/image";
 import Image from "next/image";
 import Link from "@mui/material/Link";
 import {CustomButton} from "@/components/ui/Header/style";
 import {CustomButtonOurMenu, LinkOurMenu} from "@/components/ui/OurMenu/style";
-import GalleryCarousel from "@/components/ui/GalleryCarousel/GalleryCarousel";
+// import GalleryCarousel from "@/components/ui/GalleryCarousel/GalleryCarousel";
 import MenuIcon from "@mui/icons-material/Menu";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import {IconButton, useMediaQuery} from "@mui/material";
 
-const Verstka = () => {
+const Verstka:FC = () => {
     const isMobile = useMediaQuery('(max-width: 768px)'); // Проверка на мобильное устройство
     const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -360,7 +360,7 @@ const Verstka = () => {
                     </div>
                 </div>
             </OurMenu>
-            <GalleryCarousel/>
+            {/*<GalleryCarousel/>*/}
             <Footer>
                 <div className='contentContainer'>
                     <div className='title'>

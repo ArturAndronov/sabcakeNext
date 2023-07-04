@@ -12,7 +12,7 @@ import {
     Switch,
     Toolbar,
     Typography,
-    Container
+    Container, useMediaQuery
 } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -27,29 +27,13 @@ import {darkTheme, lightTheme} from "@/utils/theme";
 import images from '../../../assets/image'
 import Image from "next/image";
 
-import {StyledBadge, LinkBox} from './style'
+import {StyledBadge, NavContainer} from './style'
 
-import {Translations} from './../../../pages/index';
-
-interface NavProps {
-    selectedLanguage: string;
-    handleLanguageChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-    translations: Translations;
-}
-
+import { useTranslation } from 'next-i18next';
 const theme = createTheme();
-const Nav: FC<NavProps> = ({selectedLanguage, translations, handleLanguageChange}) => {
+const Nav: FC = () => {
 
-
-    const languages = [
-        {value: 'en', label: 'English'},
-        {value: 'ru', label: 'Russian'},
-        // Добавьте другие языки по желанию
-    ];
-
-// Получите текущий текст на основе выбранного языка
-    const currentTranslations = translations[selectedLanguage];
-
+    const { t } = useTranslation();
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const openMenu = Boolean(anchorEl);
@@ -60,89 +44,89 @@ const Nav: FC<NavProps> = ({selectedLanguage, translations, handleLanguageChange
         setAnchorEl(null);
     };
 
+    const isMobile = useMediaQuery('(max-width: 768px)'); // Проверка на мобильное устройство
+
     return (
         <>
-            <AppBar
-                position="fixed"
-                style={{
-                    backgroundColor: 'transparent',
-                    boxShadow: 'none',
-                    padding: "10px",
-                    backdropFilter: 'saturate(180%) blur(20px)',
-                }}
-            >
-                <Toolbar
-                    style={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        padding: "0px 215px"
-                    }}>
-                    <Box>
-                        <Link href="/">
-                            <Image src={images.logo} alt="Logo"
-                            />
-                        </Link>
-                    </Box>
-                    <Box sx={{display: 'flex'}}>
-                        <LinkBox>
-                            <Link href="/">{currentTranslations.home}</Link>
-                            <Link href="#gallerycarousel">{currentTranslations.gallery}</Link>
-                            <Link href="/shop">{currentTranslations.shop}</Link>
-                            <Link href="#portfolio">{currentTranslations.portfolio}</Link>
-                        </LinkBox>
-                        <Box style={{
-                            display: 'flex',
-                            alignItems: 'center'
-                        }}>
-                            <Box style={{
-                                paddingRight: '15px'
-                            }}>
-                                <IconButton aria-label="cart">
-                                    <StyledBadge badgeContent={2} color="error">
-                                        <ShoppingCartIcon/>
-                                    </StyledBadge>
-                                </IconButton>
-                            </Box>
-                            <Box>
+            <NavContainer>
+                <div className='container'>
+                    <div className="logo">
+                        <Image
+                            src={images.logo}
+                            alt="Logo"
+                        /></div>
+
+                    <div className="menu">
+                        {!isMobile && (
+                            <div>
+                                <a href="/">Home</a>
+                                <a href="#gallerycarousel">Gallery</a>
+                                <a href="/shop">Shop</a>
+                                <a href="#portfolio">Portfolio</a>
+                            </div>
+                        )}
+                        <div>
+                            {isMobile && (
                                 <IconButton
                                     size="large"
                                     edge="start"
                                     color="default"
                                     aria-label="menu"
+                                    onClick={handleClickMenu}
                                 >
-                                    <MenuIcon onClick={handleClickMenu}/>
-                                    <Menu
-                                        id="basic-menu"
-                                        anchorEl={anchorEl}
-                                        open={openMenu}
-                                        onClose={handleCloseMenu}
-                                        MenuListProps={{
-                                            'aria-labelledby': 'basic-button',
-                                        }}
-                                    >
-                                        <MenuItem onClick={handleCloseMenu}><Link href="#">Home</Link></MenuItem>
-                                        <MenuItem onClick={handleCloseMenu}><Link href="#">Characters</Link></MenuItem>
-                                        <MenuItem onClick={handleCloseMenu}><Link href="#">Logout</Link></MenuItem>
-                                    </Menu>
+                                    <MenuIcon/>
                                 </IconButton>
-                            </Box>
-                            <Box>
-                                <TextField
-                                    select
-                                    value={selectedLanguage}
-                                    onChange={handleLanguageChange}
-                                >
-                                    {languages.map((language) => (
-                                        <MenuItem key={language.value} value={language.value}>
-                                            {language.label}
-                                        </MenuItem>
-                                    ))}
-                                </TextField>
-                            </Box>
-                        </Box>
-                    </Box>
-                </Toolbar>
-            </AppBar>
+                            )}
+
+                            <Menu
+                                id="basic-menu"
+                                anchorEl={anchorEl}
+                                open={Boolean(anchorEl)}
+                                onClose={handleCloseMenu}
+                                MenuListProps={{
+                                    'aria-labelledby': 'basic-button',
+                                }}
+                            >
+                                <MenuItem onClick={handleCloseMenu}>
+                                    <Link href="/">Home</Link>
+                                </MenuItem>
+                                <MenuItem onClick={handleCloseMenu}>
+                                    <Link href="#gallerycarousel">Gallery</Link>
+                                </MenuItem>
+                                <MenuItem onClick={handleCloseMenu}>
+                                    <Link href="/shop">Shop</Link>
+                                </MenuItem>
+                                <MenuItem onClick={handleCloseMenu}>
+                                    <Link href="#portfolio">Portfolio</Link>
+                                </MenuItem>
+                            </Menu>
+                            <div>
+                                <IconButton aria-label="cart">
+                                    <StyledBadge badgeContent={2} color="error">
+                                        <ShoppingCartIcon/>
+                                    </StyledBadge>
+                                </IconButton>
+                            </div>
+                           <div>
+                               {/*<TextField*/}
+                               {/*    select*/}
+                               {/*    value={selectedLanguage}*/}
+                               {/*    onChange={handleLanguageChange}*/}
+                               {/*>*/}
+                               {/*    {languages.map((language) => (*/}
+                               {/*        <MenuItem key={language.value} value={language.value}>*/}
+                               {/*            {language.label}*/}
+                               {/*        </MenuItem>*/}
+                               {/*    ))}*/}
+                               {/*</TextField>*/}
+                           </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </NavContainer>
         </>
     )
 }

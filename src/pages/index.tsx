@@ -11,12 +11,13 @@ import CakePops from "@/components/ui/CakePops";
 import OurMenu from "@/components/ui/OurMenu";
 import GalleryCarousel from "@/components/ui/GalleryCarousel/GalleryCarousel";
 import AboutMe from "@/components/ui/AboutMe";
+import Layout from "@/components/common/Layout";
 
 
 const HomePage: NextPage = () => {
     return (
         <>
-            <Nav />
+            <Layout title={"HomePage"} description={"best cake"}>
             <Header />
             <AboutMe/>
             <BestProduct/>
@@ -25,7 +26,8 @@ const HomePage: NextPage = () => {
             <CakePops/>
             <OurMenu/>
             <GalleryCarousel/>
-            <Footer/>
+            </Layout>
+
         </>
     )
 }

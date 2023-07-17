@@ -1,6 +1,5 @@
 import React, {FC} from 'react';
 
-import Layout from "@/components/common/Layout"
 import {CustomButton, HeaderContainer} from "@/components/ui/Header/style";
 
 import Link from "@mui/material/Link";
@@ -11,7 +10,6 @@ const Header: FC = () => {
 
     return (
         <>
-            <Layout title="Header" description="A sweet bite">
                 <HeaderContainer>
                     <div className='container'>
                         <h1>A Sweet Bite</h1>
@@ -24,7 +22,6 @@ const Header: FC = () => {
                         </CustomButton>
                     </div>
                 </HeaderContainer>
-            </Layout>
         </>
     )
 }

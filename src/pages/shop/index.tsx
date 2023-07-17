@@ -1,105 +1,345 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {NextPage} from "next";
-import Nav from "@/components/common/Nav";
-import Footer from "@/components/common/Footer";
-import {Translations} from "@/pages";
+import Layout from "@/components/common/Layout";
+import Categories from "@/components/common/Categories";
+import Image from "next/image";
+import images from "@/assets/image";
 
 
-const Shop:NextPage = () =>{
-    const [selectedLanguage, setSelectedLanguage] = useState("en");
-
-    const handleLanguageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSelectedLanguage(event.target.value);
-    };
-
-    const translations: Translations = {
-        en: {
-            titleHeader: 'A Sweet Bite',
-            descriptionHeader: 'Take it all in a single bite. Import the full demo content with a\n' +
-                '                            single mouse click using the one-click import feature.',
-            buttonHeader: 'Take a bite',
-            titleAboutMe: 'About Me',
-            descriptionAboutMe: 'My name is Sabina and I am a home pastry chef! Sweets have always been present\n' +
-                '                                in my life and have been an integral part of it, looking back now,\n' +
-                '                                I understand that cooking various dishes has always attracted and fascinated me,\n' +
-                '                                with the birth of my son, the craving for making delicious ,\n' +
-                '                                natural and homemade food has become even stronger,\n' +
-                '                                my son has become my incentive to realize himself as a pastry chef, every New month of\n' +
-                '                                his life\n' +
-                '                                I was celebrating with a new cake and it was a small step on the way to a big dream.\n' +
-                '                                With each new cake, my skills increased, and the desire to master new techniques and\n' +
-                '                                processes grew,\n' +
-                '                                the birth of my daughter only increased this interest, and moving to a new country\n' +
-                '                                became one of the most\n' +
-                '                                important stages for me in a new place, everything sparkled with new colors, new friends\n' +
-                '                                and acquaintances appeared,\n' +
-                '                                who inspired new achievements and pushed me to a new step- and so, step by step ,\n' +
-                '                                I became who I am now, a home- made pastry chef with a great love for his work and big\n' +
-                '                                dreams and plans for the future .',
-            titleChooseFlavor: 'Choose Your Flavor',
-            descriptionChooseFlavor: 'Here you can independently assemble your ideal dessert that fully meets your preferences and\n' +
-                '                        desires.',
-            button: 'Order now',
-            titleCakePops: 'Cake Pops',
-            descriptionCakePops: 'Delicate biscuit with juicy filling, covered with Belgian chocolate with any decor of your\n' +
-                '                        choice.',
-            titleOurMenu: 'Our menu',
-            descriptionOurMenu: ' A variety of flavors and delicious desserts are waiting for you in our menu! We proudly\n' +
-                '                                offer a wide selection of fresh and delicious cupcakes, cakes and other gourmet sweets\n' +
-                '                                that are sure to win your heart and provide the most sophisticated taste experience.',
-            OurMenuSnikersTitle: '"Snikers"',
-            OurMenuSkinkersDescription: 'Сhocolate-nut filling that immerses you in a magical world. A blend of smooth peanut butter cream, sweet caramel and crunchy nuts strikes an unbeatable balance between softness and texture, bursting in your mouth with absolute bliss.',
-            OurMenuMeringueTitle: 'Meringue cake',
-            OurMenuMeringueDescription: 'Meringue roll starts with a thin layer of fluffy and tender meringue, baked until golden brown. Its lightness and fragility create the perfect base for this dessert, giving it an elegant look. Then a luxurious layer of cream is applied to the meringue, which adds a rich and unique taste to the dessert.',
-            OurMenuHoneyTitle: '"Honey"',
-            OurMenuHoneyDescription: '"Honey cake" is a true work of art, combining delicate honey gingerbread and\n' +
-                '                                        airy buttercream. Each layer of this cake is soaked in fragrant honey and\n' +
-                '                                        creates the perfect combination of spiciness and sweetness.',
-            OurMenuCupcakeTitle: 'Cupcake',
-            OurMenuCupcakeDescription: 'Сupcakes are little pieces of joy that will win your heart with their flavors, textures and attractive appearance.',
-            home: "Home",
-            gallery: "Gallery",
-            shop: "Shop",
-            portfolio: "Portfolio",
-        },
-        ru: {
-            titleHeader: 'Сладкий кусочек',
-            descriptionHeader: 'Съешьте все это за один раз. Импортируйте полный демонстрационный контент одним щелчком мыши, используя функцию импорта в один клик.',
-            buttonHeader: 'Откуси кусочек',
-            titleAboutMe: 'Обо мне',
-            descriptionAboutMe: 'Меня зовут Сабина и я домашний кондитер! Сладости всегда присутствовали в моей жизни и были неотъемлемой ее частью, оглядываясь сейчас назад, я понимаю , что приготовление различных блюд всегда меня манило и завораживало , с рождением сыночка тяга к изготовлению вкусной , натуральной и домашней еды стала ещё сильней. Сыночек стал моим стимулом для реализации себя в роли кондитера,каждый Новый месяц его жизни я отмечала новым тортиком и это был маленький шажочек на пути к большой мечте С каждым новым тортом мои навыки увеличивались , а желание овладевать новыми техниками и процессами росло рождение доченьки только усилило этот интерес, а переезд в новую страну стал для меня одним из самых важных этапов на новом месте все заиграло новыми красками , появились новые друзья, знакомые , которые вдохновили на новые свершения и подтолкнули к новому шажочку- обучению так шаг за шагом я становилась тем, кем я есть сейчас , домашним кондитером с огромной любовью к своему делу и большими мечтами и планами на будущее',
-            titleChooseFlavor: 'Выберите cвой вкус',
-            descriptionChooseFlavor: 'Здесь вы можете самостоятельно собрать свой идеальный десерт, который полностью соответствует вашим предпочтениям и желаниям.',
-            button: 'Заказать сейчас',
-            titleCakePops: 'Пирожное на палочке',
-            descriptionCakePops: 'Нежный бисквит с сочной начинкой, покрытый бельгийским шоколадом, с любым декором на ваш выбор.',
-            titleOurMenu: 'Наше меню',
-            descriptionOurMenu: 'Разнообразие вкусов и восхитительные десерты ждут вас в нашем меню! Мы с гордостью предлагаем широкий выбор свежих и вкусных кексов, пирожных и других изысканных сладостей, которые обязательно покорят ваше сердце и подарят самые изысканные вкусовые ощущения.',
-            OurMenuSnikersTitle: '"Сникерс"',
-            OurMenuSkinkersDescription: 'Шоколадно-ореховая начинка, которая погружает вас в волшебный мир. Смесь нежного крема с арахисовым маслом, сладкой карамели и хрустящих орехов создает непревзойденный баланс между мягкостью и текстурой, наполняя ваш рот абсолютным блаженством.',
-            OurMenuMeringueTitle: 'Меренговый торт',
-            OurMenuMeringueDescription: 'Рулет из меренги начинается с тонкого слоя пышной и нежной меренги, выпекаемой до золотисто-коричневого цвета. Его легкость и хрупкость создают идеальную основу для этого десерта, придавая ему элегантный вид. Затем на безе наносится роскошный слой крема, который придает десерту насыщенный и неповторимый вкус.',
-            OurMenuHoneyTitle: '"Медовик"',
-            OurMenuHoneyDescription: '""Медовый пирог" - это настоящее произведение искусства, сочетающее в себе нежные медовые пряники и воздушный сливочный крем. Каждый слой этого торта пропитан ароматным медом и создает идеальное сочетание пряности и сладости.',
-            OurMenuCupcakeTitle: "Кексы",
-            OurMenuCupcakeDescription: 'Кексы - это маленькие кусочки радости, которые покорят ваше сердце своим вкусом, текстурой и привлекательным внешним видом.',
-            home: "Главная",
-            gallery: "Галерея",
-            shop: "Магазин",
-            portfolio: "Портфолио",
-        },
-    };
+const Shop: NextPage = () => {
 
     return (
         <>
-            <Nav
-                selectedLanguage={selectedLanguage}
-                handleLanguageChange={handleLanguageChange}
-                translations={translations}
+        <Layout title={"Shop"} description={"taste your flavor"}>
+            <Categories items={['Торты', 'Краффины', 'Бенто торты']}/>
+            <div className='sort'>
+                <div className='sort__label'>
+                    <svg
+                        width="10"
+                        height="6"
+                        viewBox="0 0 10 6"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M10 5C10 5.16927 9.93815 5.31576 9.81445 5.43945C9.69075 5.56315 9.54427 5.625 9.375 5.625H0.625C0.455729 5.625 0.309245 5.56315 0.185547 5.43945C0.061849 5.31576 0 5.16927 0 5C0 4.83073 0.061849 4.68424 0.185547 4.56055L4.56055 0.185547C4.68424 0.061849 4.83073 0 5 0C5.16927 0 5.31576 0.061849 5.43945 0.185547L9.81445 4.56055C9.93815 4.68424 10 4.83073 10 5Z"
+                            fill="#2C2C2C"
+                        />
+                    </svg>
+                    <b>Сортировка по:</b>
+                    <span>популярности</span>
+                </div>
+                <div className='sort__popup'>
+                    <ul>
+                        <li className='active'>популярности</li>
+                        <li>цене</li>
+                        <li>алфавиту</li>
+                    </ul>
+                </div>
+            </div>
+
+    <h2 className='content__title'>Весь товар</h2>
+
+    <div className='content__items'>
+        <div className='cake-block'>
+            <Image
+                className='cake-block_image'
+                src={images.cakeItem2}
+                alt='cake'
             />
-            {/* Add your shop content here */}
-            <Footer />
-        </>
-    );
+            <h4 className='cake-block__title'>Торт Сникерс</h4>
+            <div className='cake-block__selector'>
+                <div>Бисквит:</div>
+                <ul>
+                    <li className='active'>ванильный</li>
+                    <li>шоколадный</li>
+                    <li>апельсиновый</li>
+                    <li>кокосовый</li>
+                    <li>морковный</li>
+                    <li>красный бархат</li>
+                </ul>
+                <div>Начинки:</div>
+                <ul>
+                    <li className='active'>клубника</li>
+                    <li>вишня</li>
+                    <li>чёрная смородина</li>
+                    <li>ягодный микс</li>
+                </ul>
+                <ul>
+                    <li className='active'>манго-маракуйя</li>
+                    <li>апельскиновый курд</li>
+                    <li>апельсиновая карамель</li>
+                    <li>карамелизированный банан</li>
+                    <li>ягодный микс</li>
+                </ul>
+                <ul>
+                    <li className='active'>классическая</li>
+                    <li>солёная</li>
+                </ul>
+            </div>
+            <div className='cake-block__bottom'>
+                <div className='cake-block__price'>от 300₪</div>
+                <div className="button button--outline button--add">
+                    <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 12 12"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M10.8 4.8H7.2V1.2C7.2 0.5373 6.6627 0 6 0C5.3373 0 4.8 0.5373 4.8 1.2V4.8H1.2C0.5373 4.8 0 5.3373 0 6C0 6.6627 0.5373 7.2 1.2 7.2H4.8V10.8C4.8 11.4627 5.3373 12 6 12C6.6627 12 7.2 11.4627 7.2 10.8V7.2H10.8C11.4627 7.2 12 6.6627 12 6C12 5.3373 11.4627 4.8 10.8 4.8Z"
+                            fill="white"
+                        />
+                    </svg>
+                    <span>Добавить</span>
+                    <i>2</i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div className='content__items'>
+        <div className='cake-block'>
+            <Image
+                className='cake-block_image'
+                src={images.cakeItem3}
+                alt='cake'
+            />
+            <h4 className='cake-block__title'>Медовик</h4>
+            <div className='cake-block__selector'>
+                <div>Бисквит:</div>
+                <ul>
+                    <li className='active'>ванильный</li>
+                    <li>шоколадный</li>
+                    <li>апельсиновый</li>
+                    <li>кокосовый</li>
+                    <li>морковный</li>
+                    <li>красный бархат</li>
+                </ul>
+                <div>Начинки:</div>
+                <ul>
+                    <li className='active'>клубника</li>
+                    <li>вишня</li>
+                    <li>чёрная смородина</li>
+                    <li>ягодный микс</li>
+                </ul>
+                <ul>
+                    <li className='active'>манго-маракуйя</li>
+                    <li>апельскиновый курд</li>
+                    <li>апельсиновая карамель</li>
+                    <li>карамелизированный банан</li>
+                    <li>ягодный микс</li>
+                </ul>
+                <ul>
+                    <li className='active'>классическая</li>
+                    <li>солёная</li>
+                </ul>
+            </div>
+            <div className='cake-block__bottom'>
+                <div className='cake-block__price'>от 220₪</div>
+                <div className="button button--outline button--add">
+                    <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 12 12"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M10.8 4.8H7.2V1.2C7.2 0.5373 6.6627 0 6 0C5.3373 0 4.8 0.5373 4.8 1.2V4.8H1.2C0.5373 4.8 0 5.3373 0 6C0 6.6627 0.5373 7.2 1.2 7.2H4.8V10.8C4.8 11.4627 5.3373 12 6 12C6.6627 12 7.2 11.4627 7.2 10.8V7.2H10.8C11.4627 7.2 12 6.6627 12 6C12 5.3373 11.4627 4.8 10.8 4.8Z"
+                            fill="white"
+                        />
+                    </svg>
+                    <span>Добавить</span>
+                    <i>1</i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div className='content__items'>
+        <div className='cake-block'>
+            <Image
+                className='cake-block_image'
+                src={images.cakeItem4}
+                alt='cake'
+            />
+            <h4 className='cake-block__title'>Наполеон</h4>
+            <div className='cake-block__selector'>
+                <div>Бисквит:</div>
+                <ul>
+                    <li className='active'>ванильный</li>
+                    <li>шоколадный</li>
+                    <li>апельсиновый</li>
+                    <li>кокосовый</li>
+                    <li>морковный</li>
+                    <li>красный бархат</li>
+                </ul>
+                <div>Начинки:</div>
+                <ul>
+                    <li className='active'>клубника</li>
+                    <li>вишня</li>
+                    <li>чёрная смородина</li>
+                    <li>ягодный микс</li>
+                </ul>
+                <ul>
+                    <li className='active'>манго-маракуйя</li>
+                    <li>апельскиновый курд</li>
+                    <li>апельсиновая карамель</li>
+                    <li>карамелизированный банан</li>
+                    <li>ягодный микс</li>
+                </ul>
+                <ul>
+                    <li className='active'>классическая</li>
+                    <li>солёная</li>
+                </ul>
+            </div>
+            <div className='cake-block__bottom'>
+                <div className='cake-block__price'>от 270₪</div>
+                <div className="button button--outline button--add">
+                    <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 12 12"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M10.8 4.8H7.2V1.2C7.2 0.5373 6.6627 0 6 0C5.3373 0 4.8 0.5373 4.8 1.2V4.8H1.2C0.5373 4.8 0 5.3373 0 6C0 6.6627 0.5373 7.2 1.2 7.2H4.8V10.8C4.8 11.4627 5.3373 12 6 12C6.6627 12 7.2 11.4627 7.2 10.8V7.2H10.8C11.4627 7.2 12 6.6627 12 6C12 5.3373 11.4627 4.8 10.8 4.8Z"
+                            fill="white"
+                        />
+                    </svg>
+                    <span>Добавить</span>
+                    <i>1</i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div className='content__items'>
+        <div className='cake-block'>
+            <Image
+                className='cake-block_image'
+                src={images.cakeItem5}
+                alt='cake'
+            />
+            <h4 className='cake-block__title'>Меренговый рулет</h4>
+            <div className='cake-block__selector'>
+                <div>Бисквит:</div>
+                <ul>
+                    <li className='active'>ванильный</li>
+                    <li>шоколадный</li>
+                    <li>апельсиновый</li>
+                    <li>кокосовый</li>
+                    <li>морковный</li>
+                    <li>красный бархат</li>
+                </ul>
+                <div>Начинки:</div>
+                <ul>
+                    <li className='active'>клубника</li>
+                    <li>вишня</li>
+                    <li>чёрная смородина</li>
+                    <li>ягодный микс</li>
+                </ul>
+                <ul>
+                    <li className='active'>манго-маракуйя</li>
+                    <li>апельскиновый курд</li>
+                    <li>апельсиновая карамель</li>
+                    <li>карамелизированный банан</li>
+                    <li>ягодный микс</li>
+                </ul>
+                <ul>
+                    <li className='active'>классическая</li>
+                    <li>солёная</li>
+                </ul>
+            </div>
+            <div className='cake-block__bottom'>
+                <div className='cake-block__price'>от 270₪</div>
+                <div className="button button--outline button--add">
+                    <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 12 12"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M10.8 4.8H7.2V1.2C7.2 0.5373 6.6627 0 6 0C5.3373 0 4.8 0.5373 4.8 1.2V4.8H1.2C0.5373 4.8 0 5.3373 0 6C0 6.6627 0.5373 7.2 1.2 7.2H4.8V10.8C4.8 11.4627 5.3373 12 6 12C6.6627 12 7.2 11.4627 7.2 10.8V7.2H10.8C11.4627 7.2 12 6.6627 12 6C12 5.3373 11.4627 4.8 10.8 4.8Z"
+                            fill="white"
+                        />
+                    </svg>
+                    <span>Добавить</span>
+                    <i>1</i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div className='content__items'>
+        <div className='cake-block'>
+            <Image
+                className='cake-block_image'
+                src={images.cakeItem6}
+                alt='cake'
+            />
+            <h4 className='cake-block__title'>Капкейки</h4>
+            <div className='cake-block__selector'>
+                <div>Бисквит:</div>
+                <ul>
+                    <li className='active'>ванильный</li>
+                    <li>шоколадный</li>
+                    <li>апельсиновый</li>
+                    <li>кокосовый</li>
+                    <li>морковный</li>
+                    <li>красный бархат</li>
+                </ul>
+                <div>Начинки:</div>
+                <ul>
+                    <li className='active'>клубника</li>
+                    <li>вишня</li>
+                    <li>чёрная смородина</li>
+                    <li>ягодный микс</li>
+                </ul>
+                <ul>
+                    <li className='active'>манго-маракуйя</li>
+                    <li>апельскиновый курд</li>
+                    <li>апельсиновая карамель</li>
+                    <li>карамелизированный банан</li>
+                    <li>ягодный микс</li>
+                </ul>
+                <ul>
+                    <li className='active'>классическая</li>
+                    <li>солёная</li>
+                </ul>
+            </div>
+            <div className='cake-block__bottom'>
+                <div className='cake-block__price'>от 270₪</div>
+                <div className="button button--outline button--add">
+                    <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 12 12"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M10.8 4.8H7.2V1.2C7.2 0.5373 6.6627 0 6 0C5.3373 0 4.8 0.5373 4.8 1.2V4.8H1.2C0.5373 4.8 0 5.3373 0 6C0 6.6627 0.5373 7.2 1.2 7.2H4.8V10.8C4.8 11.4627 5.3373 12 6 12C6.6627 12 7.2 11.4627 7.2 10.8V7.2H10.8C11.4627 7.2 12 6.6627 12 6C12 5.3373 11.4627 4.8 10.8 4.8Z"
+                            fill="white"
+                        />
+                    </svg>
+                    <span>Добавить</span>
+                    <i>1</i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</Layout>
+</>
+)
+    ;
 };
 export default Shop;

@@ -1,5 +1,8 @@
 import React from 'react'
-const Categories = ({ items }) => {
+interface CategoriesProps {
+    items: string[];
+}
+const Categories: React.FC<CategoriesProps> = ({ items }) => {
     const [activeItem, setActiveItem] = React.useState(null);
 
     const onSelectItem = (index:any) => {

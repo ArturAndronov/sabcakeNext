@@ -328,7 +328,7 @@ const Verstka:FC = () => {
                                     &quot;Honey&quot;
                                 </h1>
                                 <p>
-                                    "Honey cake" is a true work of art, combining delicate honey gingerbread and
+                                    &quot;Honey cake&quot; is a true work of art, combining delicate honey gingerbread and
                                     airy buttercream. Each layer of this cake is soaked in fragrant honey and
                                     creates the perfect combination of spiciness and sweetness.
                                 </p>

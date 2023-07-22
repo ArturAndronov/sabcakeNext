@@ -1,4 +1,5 @@
 import React from 'react'
+import {CategoriesContainer} from "@/components/common/Categories/style";
 interface CategoriesProps {
     items: string[];
 }
@@ -10,8 +11,7 @@ const Categories: React.FC<CategoriesProps> = ({ items }) => {
     }
 
     return (
-        <div>
-            <div className='categories'>
+            <CategoriesContainer>
                 <ul>
                     <li className={activeItem === null ? 'active' : ''} onClick={() => onSelectItem(null)}>Все</li>
                     {items &&
@@ -21,8 +21,7 @@ const Categories: React.FC<CategoriesProps> = ({ items }) => {
                                 key={`${name}_${index}`}>{name}</li>
                         ))}
                 </ul>
-            </div>
-        </div>
+            </CategoriesContainer>
     )
 }
 

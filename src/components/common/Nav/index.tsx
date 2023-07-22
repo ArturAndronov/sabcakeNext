@@ -1,23 +1,12 @@
 import React, {FC, useState} from 'react';
 
 import {
-    AppBar,
-    Badge,
-    BadgeProps,
-    Box,
-    Button,
     IconButton,
-    Stack,
-    styled,
-    Switch,
-    Toolbar,
-    Typography,
-    Container, useMediaQuery
+    useMediaQuery
 } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-import TextField from '@mui/material/TextField';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Link from "@mui/material/Link";
@@ -29,11 +18,10 @@ import Image from "next/image";
 
 import {StyledBadge, NavContainer} from './style'
 
-import { useTranslation } from 'next-i18next';
+
 const theme = createTheme();
 const Nav: FC = () => {
 
-    const { t } = useTranslation();
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const openMenu = Boolean(anchorEl);

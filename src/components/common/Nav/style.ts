@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import {Badge, BadgeProps, Box} from "@mui/material";
 export const NavContainer = styled('header')`
+      z-index: 2;
       position: fixed;
       width: 100%;
       background-color: transparent;
@@ -26,6 +27,11 @@ export const NavContainer = styled('header')`
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        .mobile__menu{
+          display: flex;
+          align-items: center;
+        }
         
         a{
           color: #000;
@@ -46,6 +52,7 @@ export const NavContainer = styled('header')`
       @media (max-width: 420px) {
         .container{
           justify-content: space-between;
+          padding-right: 20px;
         }
         .logo{
           width: 115px;

@@ -53,7 +53,7 @@ const Nav: FC = () => {
                                 <Link href="#portfolio">Portfolio</Link>
                             </div>
                         )}
-                        <div>
+                        <div className="mobile__menu">
                             {isMobile && (
                                 <IconButton
                                     size="large"

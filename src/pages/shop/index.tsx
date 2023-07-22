@@ -4,7 +4,7 @@ import Layout from "@/components/common/Layout";
 import Categories from "@/components/common/Categories";
 import Image from "next/image";
 import images from "@/assets/image";
-import {ShopContainer} from "@/pages/shop/style";
+import {ShopContainer} from "@/styles/shop";
 
 
 const Shop: NextPage = () => {

@@ -40,10 +40,10 @@ const Verstka:FC = () => {
                     <div className="menu">
                         {!isMobile && (
                             <div>
-                                <a href="/verstka">Home</a>
-                                <a href="#gallerycarousel">Gallery</a>
-                                <a href="/shop">Shop</a>
-                                <a href="#portfolio">Portfolio</a>
+                                <Link href="/verstka">Home</Link>
+                                <Link href="#gallerycarousel">Gallery</Link>
+                                <Link href="/shop">Shop</Link>
+                                <Link href="#portfolio">Portfolio</Link>
                             </div>
                         )}
                         <div>
@@ -289,7 +289,7 @@ const Verstka:FC = () => {
                             </div>
                             <div>
                                 <h1>
-                                    “Snickers”
+                                    &quot;Snickers&quot;
                                 </h1>
                                 <p>
                                     Сhocolate-nut filling that immerses you in a magical world. A blend of smooth peanut
@@ -325,7 +325,7 @@ const Verstka:FC = () => {
                             </div>
                             <div>
                                 <h1>
-                                    "Honey"
+                                    &quot;Honey&quot;
                                 </h1>
                                 <p>
                                     "Honey cake" is a true work of art, combining delicate honey gingerbread and

@@ -26,7 +26,7 @@ const OurMenu: FC = () => {
                             </div>
                             <div>
                                 <h1>
-                                    “Snickers”
+                                    &quot;Snickers&quot;
                                 </h1>
                                 <p>
                                     Сhocolate-nut filling that immerses you in a magical world. A blend of smooth peanut
@@ -62,7 +62,7 @@ const OurMenu: FC = () => {
                             </div>
                             <div>
                                 <h1>
-                                    "Honey"
+                                    &quot;Honey&quot;
                                 </h1>
                                 <p>
                                     "Honey cake" is a true work of art, combining delicate honey gingerbread and

@@ -59,10 +59,10 @@ const Nav: FC = () => {
                     <div className="menu">
                         {!isMobile && (
                             <div>
-                                <a href="/">Home</a>
-                                <a href="#gallerycarousel">Gallery</a>
-                                <a href="/shop">Shop</a>
-                                <a href="#portfolio">Portfolio</a>
+                                <Link href="/">Home</Link>
+                                <Link href="#gallerycarousel">Gallery</Link>
+                                <Link href="/shop">Shop</Link>
+                                <Link href="#portfolio">Portfolio</Link>
                             </div>
                         )}
                         <div>

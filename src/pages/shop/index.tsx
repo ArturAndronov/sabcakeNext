@@ -16,7 +16,7 @@ const Shop: NextPage = () => {
                 <ShopContainer>
                     <div className='nav'>
                         <Categories items={['Торты', 'Краффины', 'Бенто торты']}/>
-                       <SortPopup/>
+                       <SortPopup items={['популярности','цене', 'алфавиту']}/>
                     </div>
 
                     <h2 className='content__title'>Весь товар</h2>

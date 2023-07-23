@@ -1,33 +1,44 @@
 import React, {FC} from "react";
 import {SortPopupContainer} from "@/components/ui/SortPopup/style";
 
-const SortPopup: FC = () => {
+interface SortPopupProps {
+    items: string[];
+}
+
+const SortPopup: FC<SortPopupProps> = ({items}) => {
     const [visiblePopup, setVisiblePopup] = React.useState(false);
-    const sortRef = React.useRef();
+    const [activeItem, setActiveItem] = React.useState(1);
+    const sortRef = React.useRef<HTMLDivElement>(null);
+    const activeLabel = items[activeItem]
 
     const toggleVisiblePopup = () => {
         setVisiblePopup(!visiblePopup)
     }
 
-    const handleOutsideClick = (e:any) => {
-        console.log(e);
+    const handleOutsideClick = (e: MouseEvent) => {
+        const target = e.target as Node; // Cast event.target to Node
+        if (sortRef.current && !sortRef.current.contains(target)) {
+            setVisiblePopup(false);
+        }
     };
 
     React.useEffect(() => {
-       document.body.addEventListener('click', handleOutsideClick);
+        document.body.addEventListener('click', handleOutsideClick);
         console.log(sortRef.current)
     }, []);
 
-
+    const onSelectItem = (index: any) => {
+        setActiveItem(index);
+        setVisiblePopup(false);
+    }
 
     return (
         <SortPopupContainer>
             <div
-                ref={(ref) => {
-                sortRef.current = ref;
-            }} className='sort'>
+                ref={sortRef} className='sort'>
                 <div className='sort__label'>
                     <svg
+                        className={visiblePopup ? 'rotated' : ''}
                         width="10"
                         height="6"
                         viewBox="0 0 10 6"
@@ -40,13 +51,19 @@ const SortPopup: FC = () => {
                         />
                     </svg>
                     <b>Сортировка по:</b>
-                    <span onClick={toggleVisiblePopup}>популярности</span>
+                    <span onClick={toggleVisiblePopup}>{activeLabel}</span>
                 </div>
                 {visiblePopup && <div className='sort__popup'>
                     <ul>
-                        <li className='active'>популярности</li>
-                        <li>цене</li>
-                        <li>алфавиту</li>
+                        {items &&
+                            items.map((name, index) => (
+                                <li
+                                    onClick={() => onSelectItem(index)}
+                                    className={activeItem === index ? 'active' : ''}
+                                    key={`${name}_${index}`}>
+                                    {name}
+                                </li>
+                            ))}
                     </ul>
                 </div>}
             </div>

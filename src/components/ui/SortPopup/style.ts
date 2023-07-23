@@ -7,10 +7,14 @@ export const SortPopupContainer = styled("div")`
 
     &__label {
       display: flex;
-
+      align-items: center;
 
       svg {
         margin-right: 8px;
+        transform: rotate(180deg);
+        &.rotated {
+          transform: rotate(0deg);
+        }
       }
 
       b {

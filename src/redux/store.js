@@ -1,8 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from './counterSlice.js'
+import filtersReducer from './reducers/filters'
+import cakesReducer from './reducers/cakes'
+import { createWrapper, HYDRATE } from 'next-redux-wrapper';
 
 export const store = configureStore({
     reducer: {
-        counter: counterReducer
-    }
-})
+        filters: filtersReducer,
+        cakes: cakesReducer,
+    },
+});
+
+export default store;

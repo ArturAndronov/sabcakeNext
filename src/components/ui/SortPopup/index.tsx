@@ -1,15 +1,20 @@
 import React, {FC} from "react";
 import {SortPopupContainer} from "@/components/ui/SortPopup/style";
 
+
+interface SortItem {
+    name: string;
+    type: string;
+}
 interface SortPopupProps {
-    items: string[];
+    items: SortItem[];
 }
 
 const SortPopup: FC<SortPopupProps> = ({items}) => {
     const [visiblePopup, setVisiblePopup] = React.useState(false);
-    const [activeItem, setActiveItem] = React.useState(1);
+    const [activeItem, setActiveItem] = React.useState(0);
     const sortRef = React.useRef<HTMLDivElement>(null);
-    const activeLabel = items[activeItem]
+    const activeLabel = items[activeItem].name;
 
     const toggleVisiblePopup = () => {
         setVisiblePopup(!visiblePopup)
@@ -24,7 +29,6 @@ const SortPopup: FC<SortPopupProps> = ({items}) => {
 
     React.useEffect(() => {
         document.body.addEventListener('click', handleOutsideClick);
-        console.log(sortRef.current)
     }, []);
 
     const onSelectItem = (index: any) => {
@@ -56,16 +60,18 @@ const SortPopup: FC<SortPopupProps> = ({items}) => {
                 {visiblePopup && <div className='sort__popup'>
                     <ul>
                         {items &&
-                            items.map((name, index) => (
+                            items.map((obj, index) => (
                                 <li
                                     onClick={() => onSelectItem(index)}
                                     className={activeItem === index ? 'active' : ''}
-                                    key={`${name}_${index}`}>
-                                    {name}
+                                    key={`${obj.type}_${index}`}
+                                >
+                                    {obj.name}
                                 </li>
                             ))}
                     </ul>
-                </div>}
+                </div>
+                }
             </div>
         </SortPopupContainer>
     )

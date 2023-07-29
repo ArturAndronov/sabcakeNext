@@ -1,6 +1,6 @@
 import '@/styles/globals.css'
 import type {AppProps} from 'next/app'
-import {createWrapper} from 'next-redux-wrapper'
+import {createWrapper, HYDRATE } from 'next-redux-wrapper'
 
 import {Provider} from 'react-redux'
 import {store} from './../redux/store'
@@ -10,7 +10,6 @@ import {ThemeProvider} from "@mui/material/styles";
 
 
 function App({Component, pageProps}: AppProps) {
-
     return (
         <ThemeProvider theme={theme}>
             <Provider store={store}>
@@ -20,6 +19,7 @@ function App({Component, pageProps}: AppProps) {
     )
 }
 
-const wrapper = createWrapper(() => store)
+const makeStore = () => store;
+const wrapper = createWrapper(makeStore);
 
-export default wrapper.withRedux(App)
+export default wrapper.withRedux(App);

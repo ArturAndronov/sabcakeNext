@@ -1,9 +1,7 @@
+import React from 'react'
 import {NextPage} from "next";
 
-
-import Nav from "@/components/common/Nav";
 import Header from "@/components/ui/Header";
-import Footer from "@/components/common/Footer";
 import BestProduct from "@/components/ui/BestProduct";
 import Review from "@/components/ui/Review";
 import ChooseFlavor from "@/components/ui/ChooseFlavor";
@@ -15,17 +13,19 @@ import Layout from "@/components/common/Layout";
 
 
 const HomePage: NextPage = () => {
+
+
     return (
         <>
             <Layout title={"HomePage"} description={"best cake"}>
-            <Header />
-            <AboutMe/>
-            <BestProduct/>
-            <Review/>
-            <ChooseFlavor/>
-            <CakePops/>
-            <OurMenu/>
-            <GalleryCarousel/>
+                <Header/>
+                <AboutMe/>
+                <BestProduct/>
+                <Review/>
+                <ChooseFlavor/>
+                <CakePops/>
+                <OurMenu/>
+                <GalleryCarousel/>
             </Layout>
 
         </>

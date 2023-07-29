@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const counterSlice = createSlice({
     name: 'counter',
     initialState: {
-        value: 0
+        value: 1
     },
     reducers: {
         increment(state) {
@@ -20,4 +20,9 @@ const counterSlice = createSlice({
 
 export const { increment, decrement, incrementByAmount } = counterSlice.actions
 
+console.log("Начальное состояние счетчика:", counterSlice.initialState);
+
+console.log("Значение счетчика после увеличения:", counterSlice.reducer(counterSlice.initialState, increment()));
+
+console.log("Значение счетчика после уменьшения:", counterSlice.reducer(counterSlice.initialState, decrement()));
 export default counterSlice.reducer

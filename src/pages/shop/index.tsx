@@ -1,7 +1,6 @@
 import React from 'react'
 import {NextPage} from "next";
 import axios from "axios";
-import {connect} from "react-redux";
 
 import Layout from "@/components/common/Layout";
 import Categories from "@/components/common/Categories";
@@ -9,47 +8,45 @@ import {ShopContainer} from "@/styles/shop";
 import SortPopup from "@/components/ui/SortPopup";
 import CakeBlock from "@/components/ui/CakeBlock";
 
-
 import {setCakes} from "@/redux/actions/cakes";
+import {useSelector, useDispatch} from "react-redux";
+import {setCategory} from '../../redux/actions/filters'
 
-interface ShopProps {
-    cakes: any[]; // Replace 'any[]' with the actual type of 'cakes' in your Redux store.
-    setCakes: (cakes: any[]) => void; // Replace 'any[]' with the actual type of 'cakes' in your Redux store.
-}
+const categoryNames = ['Торты', 'Краффины', 'Бенто торты']
+const sortItems = [
+    {name: 'популярности', type: 'popular'},
+    {
+        name: 'цене',
+        type: 'price'
+    }, {
+        name: 'алфавиту',
+        type: 'alphabet'
+    }]
+const Shop: NextPage = () => {
+    const dispatch = useDispatch();
+    const items = useSelector(({cakes}) => cakes.items);
 
-// const Shop: NextPage = () => {
-//
-//
-//
-//     React.useEffect(() => {
-//         axios.get('http://localhost:3000/db.json').then(({data}) => {
-//             setCakes(data.cakes)
-//         });
-//     }, []);
 
-class Shop extends React.Component<ShopProps> {
-    componentDidMount() {
-        axios.get('http://localhost:3000/db.json').then(({data}) => {
-            this.props.setCakes(data.cakes);
+    React.useEffect(() => {
+        axios.get('http://localhost:3001/cakes').then(({data}) => {
+            dispatch(setCakes(data))
         });
-    }
+    }, []);
 
-    render() {
-        const { cakes } = this.props;
+    const onSelectCategory = React.useCallback((index: any) => {
+        dispatch(setCategory(index))
+    }, []);
+
     return (
         <>
             <Layout title={"Shop"} description={"taste your flavor"}>
                 <ShopContainer>
                     <div className='nav'>
-                        <Categories items={['Торты', 'Краффины', 'Бенто торты']}/>
+                        <Categories
+                            onClickItem={onSelectCategory}
+                            items={categoryNames}/>
                         <SortPopup
-                            items={[{name: 'популярности', type: 'popular'}, {
-                                name: 'цене',
-                                type: 'price'
-                            }, {
-                                name: 'алфавиту',
-                                type: 'alphabet'
-                            }]}/>
+                            items={sortItems}/>
                     </div>
 
                     <h2 className='content__title'>Весь товар</h2>
@@ -57,7 +54,7 @@ class Shop extends React.Component<ShopProps> {
                     <div className='content__items'>
 
                         {
-                            cakes.map((obj: any) => (
+                            items && items.map((obj: any) => (
                                 <CakeBlock key={obj.id} {...obj}/>
                             ))
                         }
@@ -67,19 +64,6 @@ class Shop extends React.Component<ShopProps> {
             </Layout>
         </>
     )
-        }
 }
 
-const mapStateToProps = (state: any) => {
-    return {
-        cakes: state.cakes.items,
-        filters:state.filters
-    };
-};
-
-const mapDispatchToProps = (dispatch:any) => {
-    return{
-        setCakes: (cakes:any) => dispatch(setCakes(cakes))
-    }
-};
-export default connect(mapStateToProps, mapDispatchToProps)(Shop);
+export default Shop;

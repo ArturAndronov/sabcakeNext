@@ -10,7 +10,7 @@ interface SortPopupProps {
     items: SortItem[];
 }
 
-const SortPopup: FC<SortPopupProps> = ({items}) => {
+const SortPopup: FC<SortPopupProps> = React.memo(({items}) => {
     const [visiblePopup, setVisiblePopup] = React.useState(false);
     const [activeItem, setActiveItem] = React.useState(0);
     const sortRef = React.useRef<HTMLDivElement>(null);
@@ -75,6 +75,6 @@ const SortPopup: FC<SortPopupProps> = ({items}) => {
             </div>
         </SortPopupContainer>
     )
-}
+});
 
 export default SortPopup;

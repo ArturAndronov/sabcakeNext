@@ -88,13 +88,13 @@ const Nav: FC = () => {
                                     <Link href="#portfolio">Portfolio</Link>
                                 </MenuItem>
                             </Menu>
-                            <div>
+                            <Link href="/cart">
                                 <IconButton aria-label="cart">
                                     <StyledBadge badgeContent={2} color="error">
                                         <ShoppingCartIcon/>
                                     </StyledBadge>
                                 </IconButton>
-                            </div>
+                            </Link>
                            <div>
                                {/*<TextField*/}
                                {/*    select*/}

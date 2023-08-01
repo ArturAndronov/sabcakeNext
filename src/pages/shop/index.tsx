@@ -8,7 +8,7 @@ import {ShopContainer} from "@/styles/shop";
 import SortPopup from "@/components/ui/SortPopup";
 import CakeBlock from "@/components/ui/CakeBlock";
 
-import {setCakes} from "@/redux/actions/cakes";
+import {fetchCakes, setCakes} from "@/redux/actions/cakes";
 import {useSelector, useDispatch} from "react-redux";
 import {setCategory} from '../../redux/actions/filters'
 
@@ -28,9 +28,8 @@ const Shop: NextPage = () => {
 
 
     React.useEffect(() => {
-        axios.get('http://localhost:3001/cakes').then(({data}) => {
-            dispatch(setCakes(data))
-        });
+        // @ts-ignore
+        dispatch(fetchCakes())
     }, []);
 
     const onSelectCategory = React.useCallback((index: any) => {

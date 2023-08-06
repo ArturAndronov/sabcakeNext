@@ -8,32 +8,41 @@ import {ShopContainer} from "@/styles/shop";
 import SortPopup from "@/components/ui/SortPopup";
 import CakeBlock from "@/components/ui/CakeBlock";
 
-import {fetchCakes, setCakes} from "@/redux/actions/cakes";
+import {fetchCakes} from "@/redux/actions/cakes";
 import {useSelector, useDispatch} from "react-redux";
-import {setCategory} from '../../redux/actions/filters'
+import {setCategory, setSortBy} from '../../redux/actions/filters'
+import CakeLoadingBlock from "@/components/ui/CakeBlock/CakeLoadingBlock";
 
 const categoryNames = ['Торты', 'Краффины', 'Бенто торты']
 const sortItems = [
-    {name: 'популярности', type: 'popular'},
+    {name: 'популярности', type: 'popular', order: 'desc'},
     {
         name: 'цене',
-        type: 'price'
+        type: 'price',
+        order: 'asc'
     }, {
         name: 'алфавиту',
-        type: 'alphabet'
+        type: 'name',
+        order: 'asc'
     }]
 const Shop: NextPage = () => {
     const dispatch = useDispatch();
     const items = useSelector(({cakes}) => cakes.items);
+    const isLoaded = useSelector(({cakes}) => cakes.isLoaded);
+    const {category, sortBy} = useSelector(({filters}) => filters);
 
 
     React.useEffect(() => {
         // @ts-ignore
-        dispatch(fetchCakes())
-    }, []);
+        dispatch(fetchCakes(sortBy, category))
+    }, [category, sortBy]);
 
     const onSelectCategory = React.useCallback((index: any) => {
         dispatch(setCategory(index))
+    }, []);
+
+    const onClickSortType = React.useCallback((type: any) => {
+        dispatch(setSortBy(type))
     }, []);
 
     return (
@@ -42,10 +51,15 @@ const Shop: NextPage = () => {
                 <ShopContainer>
                     <div className='nav'>
                         <Categories
+                            activeCategory={category}
                             onClickItem={onSelectCategory}
                             items={categoryNames}/>
                         <SortPopup
-                            items={sortItems}/>
+                            activeSortType={sortBy.type}
+                            items={sortItems}
+                            onClickSortType={onClickSortType}
+                        />
+
                     </div>
 
                     <h2 className='content__title'>Весь товар</h2>
@@ -53,9 +67,9 @@ const Shop: NextPage = () => {
                     <div className='content__items'>
 
                         {
-                            items && items.map((obj: any) => (
-                                <CakeBlock key={obj.id} {...obj}/>
-                            ))
+                            isLoaded
+                                ? items.map((obj: any) => <CakeBlock key={obj.id} isLoading={true} {...obj} />)
+                                : Array(5).fill(0).map((_, index) => <CakeLoadingBlock key={index}/>)
                         }
 
                     </div>

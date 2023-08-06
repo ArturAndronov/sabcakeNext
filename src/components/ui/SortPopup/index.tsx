@@ -8,13 +8,14 @@ interface SortItem {
 }
 interface SortPopupProps {
     items: SortItem[];
+    onClickSortType: (type: string) => void; // Change index to type
+    activeSortType: string; // Change this type to string
 }
 
-const SortPopup: FC<SortPopupProps> = React.memo(({items}) => {
+const SortPopup: FC<SortPopupProps> = React.memo(({items,onClickSortType, activeSortType}) => {
     const [visiblePopup, setVisiblePopup] = React.useState(false);
-    const [activeItem, setActiveItem] = React.useState(0);
     const sortRef = React.useRef<HTMLDivElement>(null);
-    const activeLabel = items[activeItem].name;
+    const activeLabel = items.find(obj => obj.type === activeSortType)?.name;
 
     const toggleVisiblePopup = () => {
         setVisiblePopup(!visiblePopup)
@@ -32,7 +33,9 @@ const SortPopup: FC<SortPopupProps> = React.memo(({items}) => {
     }, []);
 
     const onSelectItem = (index: any) => {
-        setActiveItem(index);
+        if(onClickSortType) {
+            onClickSortType(index);
+        }
         setVisiblePopup(false);
     }
 
@@ -62,8 +65,8 @@ const SortPopup: FC<SortPopupProps> = React.memo(({items}) => {
                         {items &&
                             items.map((obj, index) => (
                                 <li
-                                    onClick={() => onSelectItem(index)}
-                                    className={activeItem === index ? 'active' : ''}
+                                    onClick={() => onSelectItem(obj)}
+                                    className={activeSortType === obj.type ? 'active' : ''}
                                     key={`${obj.type}_${index}`}
                                 >
                                     {obj.name}

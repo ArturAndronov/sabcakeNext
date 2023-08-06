@@ -5,6 +5,7 @@ import {CakeBlockContainer} from "@/components/ui/CakeBlock/style";
 
 import classNames from "classnames"
 
+
 const CakeBlock: FC<IcakeBlock> = ({name, price, imageUrl, types, fillings}) => {
     const availableTypes= ['ванильный', 'шоколадный', 'апельсиновый', 'кокосовый', 'морковный', 'красный бархат']
     const availableFilling = ["клубника","вишня","черная смородина", "ягодный микс", "манго-маракуйя", "апельсиновый курд", "апельсиновая карамель", "карамелизированный банан", "классическая карамель", "солёная карамель"]
@@ -18,6 +19,8 @@ const CakeBlock: FC<IcakeBlock> = ({name, price, imageUrl, types, fillings}) => 
     const OnSelectFilling = (index:any) => {
         setActiveFilling(index)
     };
+
+
 
     return (
         <CakeBlockContainer>

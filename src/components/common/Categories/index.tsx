@@ -4,27 +4,22 @@ import { CategoriesContainer } from '@/components/common/Categories/style';
 interface CategoriesProps {
     items: string[];
     onClickItem: (index: number | null) => void;
+    activeCategory: null
 }
 
-const Categories: React.FC<CategoriesProps> = React.memo(({ items, onClickItem }) => {
-    const [activeItem, setActiveItem] = React.useState<number | null>(null);
+const Categories: React.FC<CategoriesProps> = React.memo(({ activeCategory, items, onClickItem }) => {
 
-    const onSelectItem = (index: number | null) => {
-        setActiveItem(index);
-        onClickItem(index);
-    };
-console.log("rerender cat")
     return (
         <CategoriesContainer>
             <ul>
-                <li className={activeItem === null ? 'active' : ''} onClick={() => onSelectItem(null)}>
+                <li className={activeCategory === null ? 'active' : ''} onClick={() => onClickItem(null)}>
                     Все
                 </li>
                 {items &&
                     items.map((name, index) => (
                         <li
-                            className={activeItem === index ? 'active' : ''}
-                            onClick={() => onSelectItem(index)}
+                            className={activeCategory === index ? 'active' : ''}
+                            onClick={() => onClickItem(index)}
                             key={`${name}_${index}`}
                         >
                             {name}

@@ -4,7 +4,7 @@ export const setLoaded = (payload) => ({
     type: 'SET_LOADED',
     payload
 })
-export const fetchCakes = (type, sortBy, category) => (dispatch) => {
+export const fetchCakes = (sortBy, category) => (dispatch) => {
     console.log(category)
     dispatch({
         type: 'SET_LOADED',

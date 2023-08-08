@@ -6,20 +6,31 @@ import {CakeBlockContainer} from "@/components/ui/CakeBlock/style";
 import classNames from "classnames"
 
 
-const CakeBlock: FC<IcakeBlock> = ({name, price, imageUrl, types, fillings}) => {
-    const availableTypes= ['ванильный', 'шоколадный', 'апельсиновый', 'кокосовый', 'морковный', 'красный бархат']
-    const availableFilling = ["клубника","вишня","черная смородина", "ягодный микс", "манго-маракуйя", "апельсиновый курд", "апельсиновая карамель", "карамелизированный банан", "классическая карамель", "солёная карамель"]
+const CakeBlock: FC<IcakeBlock> = ({id, name, price, imageUrl, types, fillings, onClickAddCake}) => {
+    const availableTypes = ['ванильный', 'шоколадный', 'апельсиновый', 'кокосовый', 'морковный', 'красный бархат']
+    const availableFilling = ["клубника", "вишня", "черная смородина", "ягодный микс", "манго-маракуйя", "апельсиновый курд", "апельсиновая карамель", "карамелизированный банан", "классическая карамель", "солёная карамель"]
     const [activeType, setActiveType] = React.useState(types[0])
     const [activeFilling, setActiveFilling] = React.useState(fillings[0])
 
-    const OnSelectType = (index:any) => {
+    const OnSelectType = (index: any) => {
         setActiveType(index)
     };
 
-    const OnSelectFilling = (index:any) => {
+    const OnSelectFilling = (index: any) => {
         setActiveFilling(index)
     };
 
+    const onAddCake = () => {
+        const obj = {
+            id,
+            name,
+            imageUrl,
+            price,
+            filling: availableFilling[activeFilling], // Используйте числовое значение из массива
+            type: availableTypes[activeType] // Используйте числовое значение из массива
+        };
+        onClickAddCake(obj)
+    }
 
 
     return (
@@ -67,7 +78,7 @@ const CakeBlock: FC<IcakeBlock> = ({name, price, imageUrl, types, fillings}) => 
                 </div>
                 <div className='cake-block__bottom'>
                     <div className='cake-block__price'>от {price}₪</div>
-                    <div className="button button--outline button--add">
+                    <div onClick={onAddCake} className="button button--outline button--add">
                         <svg
                             width="12"
                             height="12"

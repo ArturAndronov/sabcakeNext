@@ -9,6 +9,7 @@ import SortPopup from "@/components/ui/SortPopup";
 import CakeBlock from "@/components/ui/CakeBlock";
 
 import {fetchCakes} from "@/redux/actions/cakes";
+import {addCakeToCart} from "@/redux/actions/cart";
 import {useSelector, useDispatch} from "react-redux";
 import {setCategory, setSortBy} from '../../redux/actions/filters'
 import CakeLoadingBlock from "@/components/ui/CakeBlock/CakeLoadingBlock";
@@ -45,6 +46,13 @@ const Shop: NextPage = () => {
         dispatch(setSortBy(type))
     }, []);
 
+    const handleAddCakeToCart = (obj:any) => {
+        dispatch({
+            type: 'ADD_CAKE_CART',
+            payload: obj
+        })
+    }
+
     return (
         <>
             <Layout title={"Shop"} description={"taste your flavor"}>
@@ -68,7 +76,7 @@ const Shop: NextPage = () => {
 
                         {
                             isLoaded
-                                ? items.map((obj: any) => <CakeBlock key={obj.id} isLoading={true} {...obj} />)
+                                ? items.map((obj: any) => <CakeBlock onClickAddCake={handleAddCakeToCart} key={obj.id} isLoading={true} {...obj} />)
                                 : Array(5).fill(0).map((_, index) => <CakeLoadingBlock key={index}/>)
                         }
 

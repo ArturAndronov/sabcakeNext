@@ -1,6 +1,8 @@
 import React, {FC, useState} from 'react';
 
 import {
+    Badge,
+    Box,
     IconButton,
     useMediaQuery
 } from "@mui/material";
@@ -16,12 +18,13 @@ import {darkTheme, lightTheme} from "@/utils/theme";
 import images from '../../../assets/image'
 import Image from "next/image";
 
-import {StyledBadge, NavContainer} from './style'
+import {NavContainer} from './style'
+import {useSelector} from "react-redux";
 
 
 const theme = createTheme();
 const Nav: FC = () => {
-
+    const {totalPrice, totalCount} = useSelector(({ cart }) => cart);
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const openMenu = Boolean(anchorEl);
@@ -42,6 +45,7 @@ const Nav: FC = () => {
                         <Image
                             src={images.logo}
                             alt="Logo"
+                            priority
                         /></div>
 
                     <div className="menu">
@@ -88,26 +92,31 @@ const Nav: FC = () => {
                                     <Link href="#portfolio">Portfolio</Link>
                                 </MenuItem>
                             </Menu>
-                            <Link href="/cart">
-                                <IconButton aria-label="cart">
-                                    <StyledBadge badgeContent={2} color="error">
-                                        <ShoppingCartIcon/>
-                                    </StyledBadge>
-                                </IconButton>
-                            </Link>
-                           <div>
-                               {/*<TextField*/}
-                               {/*    select*/}
-                               {/*    value={selectedLanguage}*/}
-                               {/*    onChange={handleLanguageChange}*/}
-                               {/*>*/}
-                               {/*    {languages.map((language) => (*/}
-                               {/*        <MenuItem key={language.value} value={language.value}>*/}
-                               {/*            {language.label}*/}
-                               {/*        </MenuItem>*/}
-                               {/*    ))}*/}
-                               {/*</TextField>*/}
-                           </div>
+                                <Link href="/cart">
+                                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <IconButton aria-label="cart">
+                                        <Badge badgeContent={totalCount} color="error"
+                                               style={{borderRadius: '8px'}} >
+
+                                            <ShoppingCartIcon/>
+                                        </Badge>
+                                    </IconButton>
+                                        <span style={{marginLeft: '4px'}}>| {totalPrice} $</span>
+                                    </div>
+                                </Link>
+                            <div>
+                                {/*<TextField*/}
+                                {/*    select*/}
+                                {/*    value={selectedLanguage}*/}
+                                {/*    onChange={handleLanguageChange}*/}
+                                {/*>*/}
+                                {/*    {languages.map((language) => (*/}
+                                {/*        <MenuItem key={language.value} value={language.value}>*/}
+                                {/*            {language.label}*/}
+                                {/*        </MenuItem>*/}
+                                {/*    ))}*/}
+                                {/*</TextField>*/}
+                            </div>
 
                         </div>
                     </div>

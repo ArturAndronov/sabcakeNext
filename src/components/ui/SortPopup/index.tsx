@@ -21,9 +21,9 @@ const SortPopup: FC<SortPopupProps> = React.memo(({items,onClickSortType, active
         setVisiblePopup(!visiblePopup)
     }
 
-    const handleOutsideClick = (e: MouseEvent) => {
-        const target = e.target as Node; // Cast event.target to Node
-        if (sortRef.current && !sortRef.current.contains(target)) {
+    const handleOutsideClick = (event:any) => {
+        const path = event.path || (event.composedPath && event.composedPath());
+        if (!path.includes(sortRef.current)) {
             setVisiblePopup(false);
         }
     };

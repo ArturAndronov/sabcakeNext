@@ -6,7 +6,7 @@ import {CakeBlockContainer} from "@/components/ui/CakeBlock/style";
 import classNames from "classnames"
 
 
-const CakeBlock: FC<IcakeBlock> = ({id, name, price, imageUrl, types, fillings, onClickAddCake}) => {
+const CakeBlock: FC<IcakeBlock> = ({id, name, price, imageUrl, types, fillings, onClickAddCake, addedCount}) => {
     const availableTypes = ['ванильный', 'шоколадный', 'апельсиновый', 'кокосовый', 'морковный', 'красный бархат']
     const availableFilling = ["клубника", "вишня", "черная смородина", "ягодный микс", "манго-маракуйя", "апельсиновый курд", "апельсиновая карамель", "карамелизированный банан", "классическая карамель", "солёная карамель"]
     const [activeType, setActiveType] = React.useState(types[0])
@@ -92,7 +92,7 @@ const CakeBlock: FC<IcakeBlock> = ({id, name, price, imageUrl, types, fillings, 
                             />
                         </svg>
                         <span>Добавить</span>
-                        <i>1</i>
+                        {addedCount && <i>{addedCount}</i>}
                     </div>
                 </div>
             </div>

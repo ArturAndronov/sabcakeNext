@@ -101,7 +101,7 @@ const Nav: FC = () => {
                                             <ShoppingCartIcon/>
                                         </Badge>
                                     </IconButton>
-                                        <span style={{marginLeft: '4px'}}>| {totalPrice} $</span>
+                                        <span style={{marginLeft: '4px'}}>| {totalPrice} ₪</span>
                                     </div>
                                 </Link>
                             <div>

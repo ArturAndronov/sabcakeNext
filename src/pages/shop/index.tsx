@@ -29,6 +29,7 @@ const sortItems = [
 const Shop: NextPage = () => {
     const dispatch = useDispatch();
     const items = useSelector(({cakes}) => cakes.items);
+    const cartItems = useSelector(({cart}) => cart.items);
     const isLoaded = useSelector(({cakes}) => cakes.isLoaded);
     const {category, sortBy} = useSelector(({filters}) => filters);
 
@@ -76,7 +77,7 @@ const Shop: NextPage = () => {
 
                         {
                             isLoaded
-                                ? items.map((obj: any) => <CakeBlock onClickAddCake={handleAddCakeToCart} key={obj.id} isLoading={true} {...obj} />)
+                                ? items.map((obj: any) => <CakeBlock onClickAddCake={handleAddCakeToCart} key={obj.id} addedCount={cartItems[obj.id] && cartItems[obj.id].length} {...obj} />)
                                 : Array(5).fill(0).map((_, index) => <CakeLoadingBlock key={index}/>)
                         }
 

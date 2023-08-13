@@ -11,10 +11,17 @@ export const fetchCakes = (sortBy, category) => (dispatch) => {
         payload: false,
     });
 
-    axios.get(`http://localhost:3001/cakes?${category !== null ? `category=${category}` : ''}&_sort=${sortBy.type}&_order=${sortBy.order}`)
+    axios.get('/api/cakes', {
+        params: {
+            category: category !== null ? category : undefined,
+            _sort: sortBy.type,
+            _order: sortBy.order
+        }
+    })
         .then(({data}) => {
             dispatch(setCakes(data))
         });
+
 };
 
 export const setCakes = (items) => ({

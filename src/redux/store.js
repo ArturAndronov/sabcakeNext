@@ -13,6 +13,7 @@ export const store = configureStore({
 
     },
     middleware: [...getDefaultMiddleware(), thunk], // Use Redux Toolkit's getDefaultMiddleware and add thunk
+    devTools: process.env.NODE_ENV !== 'production',
 });
 
 export default store;

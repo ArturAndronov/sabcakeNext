@@ -6,9 +6,13 @@ import Link from "@mui/material/Link";
 import CartItem from "@/components/ui/CartItem/CartItem";
 import {useSelector} from "react-redux";
 
-const Cart: NextPage = () => {
+
+const Cart: NextPage = React.memo(() => {
     const {totalPrice, totalCount, items } = useSelector(({ cart }) => cart)
 
+    const addedCakes = Object.keys(items).map(key => {
+        return items[key][0];
+    });
     return (
         <Layout title={"Cart"} description={"shopping cart"}>
             <CartContainer>
@@ -53,7 +57,12 @@ const Cart: NextPage = () => {
                                 </div>
                             </div>
                             <div className="content__items">
-                              <CartItem name="Сникерс" type="шоколадный" filling="вишня"/>
+                                {
+                                    addedCakes.map((obj, index) => (
+                                        <CartItem key={index} name={obj.name} type={obj.type} filling={obj.filling}/>
+                                    ))
+                                }
+                                {/*<CartItem name="Сникерс" type="шоколадный" filling="вишня"/>*/}
                             </div>
                             <div className="cart__bottom">
                                 <div className="cart__bottom-details">
@@ -81,6 +90,7 @@ const Cart: NextPage = () => {
             </CartContainer>
         </Layout>
     )
-}
+})
+Cart.displayName = 'Cart';
 
-export default React.memo(Cart);
+export default Cart;

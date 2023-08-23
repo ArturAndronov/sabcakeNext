@@ -1,6 +1,5 @@
 import React from 'react'
 import {NextPage} from "next";
-import axios from "axios";
 
 import Layout from "@/components/common/Layout";
 import Categories from "@/components/common/Categories";
@@ -9,9 +8,9 @@ import SortPopup from "@/components/ui/SortPopup";
 import CakeBlock from "@/components/ui/CakeBlock";
 
 import {fetchCakes} from "@/redux/actions/cakes";
-import {addCakeToCart} from "@/redux/actions/cart";
+
 import {useSelector, useDispatch} from "react-redux";
-import {setCategory, setSortBy} from '../../redux/actions/filters'
+import {setCategory, setSortBy} from '@/redux/actions/filters'
 import CakeLoadingBlock from "@/components/ui/CakeBlock/CakeLoadingBlock";
 
 const categoryNames = ['Торты', 'Краффины', 'Бенто торты']

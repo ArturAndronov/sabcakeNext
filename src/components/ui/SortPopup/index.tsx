@@ -1,34 +1,41 @@
 import React, {FC} from "react";
 import {SortPopupContainer} from "@/components/ui/SortPopup/style";
 
+
+interface SortItem {
+    name: string;
+    type: string;
+}
 interface SortPopupProps {
-    items: string[];
+    items: SortItem[];
+    onClickSortType: (type: string) => void; // Change index to type
+    activeSortType: string; // Change this type to string
 }
 
-const SortPopup: FC<SortPopupProps> = ({items}) => {
+const SortPopup: FC<SortPopupProps> = React.memo(({items,onClickSortType, activeSortType}) => {
     const [visiblePopup, setVisiblePopup] = React.useState(false);
-    const [activeItem, setActiveItem] = React.useState(1);
     const sortRef = React.useRef<HTMLDivElement>(null);
-    const activeLabel = items[activeItem]
+    const activeLabel = items.find(obj => obj.type === activeSortType)?.name;
 
     const toggleVisiblePopup = () => {
         setVisiblePopup(!visiblePopup)
     }
 
-    const handleOutsideClick = (e: MouseEvent) => {
-        const target = e.target as Node; // Cast event.target to Node
-        if (sortRef.current && !sortRef.current.contains(target)) {
+    const handleOutsideClick = (event:any) => {
+        const path = event.path || (event.composedPath && event.composedPath());
+        if (!path.includes(sortRef.current)) {
             setVisiblePopup(false);
         }
     };
 
     React.useEffect(() => {
         document.body.addEventListener('click', handleOutsideClick);
-        console.log(sortRef.current)
     }, []);
 
     const onSelectItem = (index: any) => {
-        setActiveItem(index);
+        if(onClickSortType) {
+            onClickSortType(index);
+        }
         setVisiblePopup(false);
     }
 
@@ -56,19 +63,21 @@ const SortPopup: FC<SortPopupProps> = ({items}) => {
                 {visiblePopup && <div className='sort__popup'>
                     <ul>
                         {items &&
-                            items.map((name, index) => (
+                            items.map((obj, index) => (
                                 <li
-                                    onClick={() => onSelectItem(index)}
-                                    className={activeItem === index ? 'active' : ''}
-                                    key={`${name}_${index}`}>
-                                    {name}
+                                    onClick={() => onSelectItem(obj)}
+                                    className={activeSortType === obj.type ? 'active' : ''}
+                                    key={`${obj.type}_${index}`}
+                                >
+                                    {obj.name}
                                 </li>
                             ))}
                     </ul>
-                </div>}
+                </div>
+                }
             </div>
         </SortPopupContainer>
     )
-}
+});
 
 export default SortPopup;

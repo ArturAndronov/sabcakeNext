@@ -3,11 +3,11 @@ import Slider from 'react-slick';
 import images from "@/assets/image";
 import Image from "next/image";
 import {Box} from "@mui/material";
-import {GalleryBox,Overlay, GalleryContainer} from "@/components/ui/GalleryCarousel/style";
+import {GalleryBox,Overlay, GalleryContainer, ImageContainer} from "@/components/ui/GalleryCarousel/style";
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import {ImageContainer} from "@/components/ui/AboutMe/style";
+
 
 const GalleryCarousel: FC = () => {
     const [activeSlide, setActiveSlide] = useState(null);

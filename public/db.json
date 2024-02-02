@@ -1,0 +1,54 @@
+{
+ "cakes": [
+	{
+	 "id": 0,
+	 "imageUrl": "/images/cakeItem2.png",
+	 "name": "Торт Сникерс",
+	 "types": [0,1],
+		"fillings": [5,6],
+	 "price": 300,
+	 "category": 0,
+	 "rating": 2
+	},
+	{
+	 "id": 1,
+	 "imageUrl": "/images/cakeItem3.png",
+	 "name": "Медовик",
+	 "types": [0],
+	 "fillings": [3,4,5,6],
+	 "price": 220,
+	 "category": 0,
+	 "rating": 5
+	},
+	{
+	 "id": 2,
+	 "imageUrl": "/images/cakeItem4.png",
+	 "name": "Наполеон",
+	 "types": [1,2],
+		"fillings": [0,1,2,3,4,5,6],
+	 "price": 250,
+	 "category": 0,
+	 "rating": 5
+	},
+	 {
+		 "id": 3,
+		 "imageUrl": "/images/cakeItem5.png",
+		 "name": "Меренговый рулет",
+		 "types": [0,1,2,3],
+		 "fillings": [0,1,2,3],
+		 "price": 110,
+		 "category": 1,
+		 "rating": 5
+	 },
+	 {
+		 "id": 4,
+		 "imageUrl": "/images/cakeItem6.png",
+		 "name": "Капкейки",
+		 "types": [0,1,2,3,4],
+		 "fillings": [0,1,2,3,4,5,6],
+		 "price": 70,
+		 "category": 1,
+		 "rating": 3
+	 }
+ ]
+}

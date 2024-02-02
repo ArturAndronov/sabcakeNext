@@ -9,6 +9,7 @@ import certificate2 from './img/ certificates/certificate2.png'
 import certificate3 from './img/ certificates/certificate3.png'
 import certificate4 from './img/ certificates/certificate4.png'
 import BG from './img/BG.png'
+import BG1 from './img/BG1.jpg'
 import cake from './img/cake.png'
 import logo from './img/logo.png'
 import aboutme from './img/aboutme.png'
@@ -45,6 +46,7 @@ const images = {
     certificate3: certificate3,
     certificate4: certificate4,
     BG: BG,
+    BG1: BG1,
     aboutme: aboutme,
     cake: cake,
     logo: logo,

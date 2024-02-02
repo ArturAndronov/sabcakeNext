@@ -1,28 +1,34 @@
-import React from 'react'
-import {CategoriesContainer} from "@/components/common/Categories/style";
+import React from 'react';
+import { CategoriesContainer } from '@/components/common/Categories/style';
+
 interface CategoriesProps {
     items: string[];
+    onClickItem: (index: number | null) => void;
+    activeCategory: null
 }
-const Categories: React.FC<CategoriesProps> = ({ items }) => {
-    const [activeItem, setActiveItem] = React.useState(null);
 
-    const onSelectItem = (index:any) => {
-        setActiveItem(index);
-    }
+const Categories: React.FC<CategoriesProps> = React.memo(({ activeCategory, items, onClickItem }) => {
 
     return (
-            <CategoriesContainer>
-                <ul>
-                    <li className={activeItem === null ? 'active' : ''} onClick={() => onSelectItem(null)}>Все</li>
-                    {items &&
-                        items.map((name, index) => (
-                            <li className={activeItem === index ? 'active' : ''}
-                                onClick={() => onSelectItem(index)}
-                                key={`${name}_${index}`}>{name}</li>
-                        ))}
-                </ul>
-            </CategoriesContainer>
-    )
-}
+        <CategoriesContainer>
+            <ul>
+                <li className={activeCategory === null ? 'active' : ''} onClick={() => onClickItem(null)}>
+                    Все
+                </li>
+                {items &&
+                    items.map((name, index) => (
+                        <li
+                            className={activeCategory === index ? 'active' : ''}
+                            onClick={() => onClickItem(index)}
+                            key={`${name}_${index}`}
+                        >
+                            {name}
+                        </li>
+                    ))}
+            </ul>
+        </CategoriesContainer>
+    );
+});
 
-export default Categories
+Categories.displayName = 'Categories';
+export default Categories;

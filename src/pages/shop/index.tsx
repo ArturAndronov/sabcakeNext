@@ -1,90 +1,81 @@
-import React from 'react'
-import {NextPage} from "next";
+import React from 'react';
+import { NextPage } from 'next';
 
-import Layout from "@/components/common/Layout";
-import Categories from "@/components/common/Categories";
-import {ShopContainer} from "@/styles/shop";
-import SortPopup from "@/components/ui/SortPopup";
-import CakeBlock from "@/components/ui/CakeBlock";
+import Layout from '@/components/common/Layout';
+import Categories from '@/components/common/Categories';
+import { ShopContainer } from '@/styles/shop';
+import SortPopup from '@/components/ui/SortPopup';
+import CakeBlock from '@/components/ui/CakeBlock';
 
-import {fetchCakes} from "@/redux/actions/cakes";
+import { fetchCakes } from '@/redux/actions/cakes';
 
-import {useSelector, useDispatch} from "react-redux";
-import {setCategory, setSortBy} from '@/redux/actions/filters'
-import CakeLoadingBlock from "@/components/ui/CakeBlock/CakeLoadingBlock";
+import { useSelector, useDispatch } from 'react-redux';
+import { setCategory, setSortBy } from '@/redux/actions/filters';
+import CakeLoadingBlock from '@/components/ui/CakeBlock/CakeLoadingBlock';
 
-const categoryNames = ['Торты', 'Краффины', 'Бенто торты']
+const categoryNames = ['Торты', 'Краффины', 'Бенто торты'];
 const sortItems = [
-    {name: 'популярности', type: 'popular', order: 'desc'},
-    {
-        name: 'цене',
-        type: 'price',
-        order: 'asc'
-    }, {
-        name: 'алфавиту',
-        type: 'name',
-        order: 'asc'
-    }]
+    { name: 'популярности', type: 'popular', order: 'desc' },
+    { name: 'цене', type: 'price', order: 'asc' },
+    { name: 'алфавиту', type: 'name', order: 'asc' }
+];
+
 const Shop: NextPage = () => {
     const dispatch = useDispatch();
-    const items = useSelector(({cakes}) => cakes.items);
-    const cartItems = useSelector(({cart}) => cart.items);
-    const isLoaded = useSelector(({cakes}) => cakes.isLoaded);
-    const {category, sortBy} = useSelector(({filters}) => filters);
-
-
+    const { items } = useSelector(({ cakes }) => cakes);
+    const cartItems = useSelector(({ cart }) => cart.items);
+    const isLoaded = useSelector(({ cakes }) => cakes.isLoaded);
+    const { category, sortBy } = useSelector(({ filters }) => filters);
+    console.log(items)
     React.useEffect(() => {
         // @ts-ignore
-        dispatch(fetchCakes(sortBy, category))
+        dispatch(fetchCakes(sortBy, category));
     }, [category, sortBy]);
 
     const onSelectCategory = React.useCallback((index: any) => {
-        dispatch(setCategory(index))
+        dispatch(setCategory(index));
     }, []);
 
     const onClickSortType = React.useCallback((type: any) => {
-        dispatch(setSortBy(type))
+        dispatch(setSortBy(type));
     }, []);
 
-    const handleAddCakeToCart = (obj:any) => {
+    const handleAddCakeToCart = (obj: any) => {
         dispatch({
             type: 'ADD_CAKE_CART',
             payload: obj
-        })
-    }
+        });
+    };
 
     return (
-        <>
-            <Layout title={"Shop"} description={"taste your flavor"}>
-                <ShopContainer>
-                    <div className='nav'>
-                        <Categories
-                            activeCategory={category}
-                            onClickItem={onSelectCategory}
-                            items={categoryNames}/>
-                        <SortPopup
-                            activeSortType={sortBy.type}
-                            items={sortItems}
-                            onClickSortType={onClickSortType}
-                        />
+        <Layout title={"Shop"} description={"taste your flavor"}>
+            <ShopContainer>
+                <div className="nav">
+                    <Categories
+                        activeCategory={category}
+                        onClickItem={onSelectCategory}
+                        items={categoryNames}
+                    />
+                    <SortPopup
+                        activeSortType={sortBy.type}
+                        items={sortItems}
+                        onClickSortType={onClickSortType}
+                    />
+                </div>
 
-                    </div>
+                <h2 className="content__title">Весь товар</h2>
 
-                    <h2 className='content__title'>Весь товар</h2>
+                <div className="content__items">
+                    {
+                        isLoaded
+                            ? Array.isArray(items) && items.map((obj: any) => <CakeBlock onClickAddCake={handleAddCakeToCart} key={obj.id} addedCount={cartItems[obj.id] && cartItems[obj.id].length} {...obj} />)
+                            : Array(5).fill(0).map((_, index) => <CakeLoadingBlock key={index} />)
+                    }
 
-                    <div className='content__items'>
-
-                        {
-                            isLoaded
-                                ? items.map((obj: any) => <CakeBlock onClickAddCake={handleAddCakeToCart} key={obj.id} addedCount={cartItems[obj.id] && cartItems[obj.id].length} {...obj} />)
-                                : Array(5).fill(0).map((_, index) => <CakeLoadingBlock key={index}/>)
-                        }
-
-                    </div>
-                </ShopContainer>
-            </Layout>
-        </>
-    )
-}
+                </div>
+            </ShopContainer>
+        </Layout>
+    );
+};
 
 export default Shop;

@@ -36,9 +36,9 @@ const CakeBlock: FC<IcakeBlock> = ({id, name, price, imageUrl, types, fillings, 
     return (
         <CakeBlockContainer>
             <div className='cake-block'>
-                <Image
+                <img
                     className='cake-block_image'
-                    src={imageUrl}
+                    src={`https://localhost:7082/${imageUrl}`}
                     alt='cake'
                     width={350} // Replace 200 with the actual width of your image
                     height={350}

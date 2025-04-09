@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 export const FooterContainer = styled('footer')`
+  
   background-color: #000;
   width: 100%;
   height: 408px;

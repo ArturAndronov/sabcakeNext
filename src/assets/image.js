@@ -4,11 +4,12 @@ import cakeItem4 from './img/cakeItem4.png'
 import cakeItem5 from './img/cakeItem5.png'
 import cakeItem6 from './img/cakeItem6.png'
 import cakeItem7 from './img/cakeItem7.png'
-import certificate1 from './img/ certificates/certificate1.png'
-import certificate2 from './img/ certificates/certificate2.png'
-import certificate3 from './img/ certificates/certificate3.png'
-import certificate4 from './img/ certificates/certificate4.png'
+import certificate1 from './img/certificates/certificate1.png'
+import certificate2 from './img/certificates/certificate2.png'
+import certificate3 from './img/certificates/certificate3.png'
+import certificate4 from './img/certificates/certificate4.png'
 import BG from './img/BG.png'
+import BG1 from './img/BG1.jpg'
 import cake from './img/cake.png'
 import logo from './img/logo.png'
 import aboutme from './img/aboutme.png'
@@ -45,6 +46,7 @@ const images = {
     certificate3: certificate3,
     certificate4: certificate4,
     BG: BG,
+    BG1: BG1,
     aboutme: aboutme,
     cake: cake,
     logo: logo,

@@ -1,16 +1,16 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 
 import images from "@/assets/image";
 import Image from "next/image";
 import SliderComponent from "@/components/ui/SliderComponent";
-import {AboutMeContainer} from "@/components/ui/AboutMe/style";
+import { AboutMeContainer } from "@/components/ui/AboutMe/style";
 
 const AboutMe: FC = () => {
 
     return (
         <>
-            <AboutMeContainer>
-                <div id="portfolio" className='container'>
+            <AboutMeContainer id="portfolio">
+               
                     <div className='imageContainer'>
                         <Image
                             src={images.sab}
@@ -32,10 +32,10 @@ const AboutMe: FC = () => {
                             step by step , I became who I am now, a home- made pastry chef with a great love for his
                             work and big dreams and plans for the future .</p>
                     </div>
-                    <div className='imageContainer'>
-                        <SliderComponent/>
+                    <div className='sliderContainer'>
+                        <SliderComponent />
                     </div>
-                </div>
+             
             </AboutMeContainer>
         </>
     )

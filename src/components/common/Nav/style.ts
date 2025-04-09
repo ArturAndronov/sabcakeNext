@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {Badge, BadgeProps, Box} from "@mui/material";
+import { Badge, BadgeProps, Box } from "@mui/material";
 export const NavContainer = styled('header')`
       z-index: 2;
       position: fixed;
@@ -57,18 +57,13 @@ export const NavContainer = styled('header')`
         .logo{
           width: 115px;
         }
-        .menu > a {
-          margin-right: 15px;
+        .menu {
+          a {
+          margin-right: 10px;
         }
       }
+      }
     `;
-export const StyledBadge = styled(Badge)<BadgeProps>(({theme}:any) => ({
-    '& .MuiBadge-badge': {
-        right: -3,
-        top: 13,
-        border: `2px solid ${theme.palette.background.paper}`,
-        padding: '0 4px',
-    },
-}));
+
 
 

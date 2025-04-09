@@ -1,5 +1,11 @@
 import styled from '@emotion/styled';
 import {Box} from "@mui/material";
+export const ImageContainer = styled(Box)`
+  & img {
+    width: 100%;
+    height: auto;
+  }
+`;
 export const GalleryContainer = styled(Box)`
   width: 100%;
   margin: 0 auto;

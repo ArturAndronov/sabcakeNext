@@ -1,15 +1,10 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
-
 module.exports = {
-  // Другие настройки проекта...
-
-  images: {
-    domains: ['example.com', 'cdn2.specialist.ru'],
-    loader: 'imgix', // Замените 'imgix' на любой другой загрузчик, если используете другой
-    path: '', // Оставьте пустым, чтобы отключить Image Optimization API во время экспорта
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'https://localhost:7082/api/:path*', // Прокси запросов
+      },
+    ]
   },
-};
-module.exports = nextConfig
+}
